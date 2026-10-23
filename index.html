@@ -1,0 +1,1650 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Estado fiscal y política fiscal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #f8f8f6;
+  --fg: #1b1e2b;
+  --accent: rgb(47,70,122);
+  --accent-soft: rgba(47,70,122,0.08);
+  --accent-mid: rgba(47,70,122,0.18);
+  --card: #ffffff;
+  --line: #dfe1e7;
+  --muted: #5f6475;
+  --note-bg: #fbf5e6;
+  --note-line: #d9b45a;
+  --bar: rgb(47,70,122);
+  --bar-fg: #ffffff;
+  --bar-muted: rgba(255,255,255,0.72);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12141d; --fg: #e3e5ec; --accent: #8ea8de;
+    --accent-soft: rgba(142,168,222,0.10); --accent-mid: rgba(142,168,222,0.22);
+    --card: #1a1d29; --line: #2c3040; --muted: #9ba0b2;
+    --note-bg: #26221a; --note-line: #a8873c;
+    --bar: #1d2440; --bar-fg: #e3e5ec; --bar-muted: rgba(227,229,236,0.7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12141d; --fg: #e3e5ec; --accent: #8ea8de;
+  --accent-soft: rgba(142,168,222,0.10); --accent-mid: rgba(142,168,222,0.22);
+  --card: #1a1d29; --line: #2c3040; --muted: #9ba0b2;
+  --note-bg: #26221a; --note-line: #a8873c;
+  --bar: #1d2440; --bar-fg: #e3e5ec; --bar-muted: rgba(227,229,236,0.7);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px; line-height: 1.62;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--bar); z-index: 10; }
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: var(--bar); color: var(--bar-fg);
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px));
+}
+.topbar-inner { max-width: 780px; margin: 0 auto; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.session-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bar-muted); white-space: nowrap; }
+.session-title { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 1.02rem; min-width: 0; }
+.progress { height: 3px; background: var(--line); margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px))); }
+.progress span { display: block; height: 100%; background: var(--accent); transition: width .35s ease; }
+
+.step { display: none; max-width: 780px; margin: 0 auto; padding: 28px 0 110px; }
+.step.active { display: block; animation: in .25s ease; }
+@keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 2rem; line-height: 1.2; text-wrap: balance; margin-bottom: 10px; }
+h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.6rem; line-height: 1.25; text-wrap: balance; margin-bottom: 12px; }
+h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; font-weight: 600; margin: 26px 0 8px; }
+p { max-width: 70ch; }
+p + p { margin-top: 12px; }
+ul, ol { padding-left: 1.3em; margin-top: 8px; max-width: 70ch; }
+li + li { margin-top: 6px; }
+strong { font-weight: 600; }
+.lead { font-size: 1.05rem; color: var(--muted); }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-top: 16px; }
+.card.key { border-left: 4px solid var(--accent); }
+.card.note { background: var(--note-bg); border-color: var(--note-line); }
+.card-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.card.note .card-title { color: var(--fg); }
+.src { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-top: 14px; }
+blockquote { border-left: 3px solid var(--accent-mid); padding: 4px 0 4px 14px; margin-top: 14px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; max-width: 68ch; }
+blockquote cite { display: block; font-style: normal; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+.formula { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.25rem; font-weight: 600; text-align: center; padding: 12px 0; color: var(--accent); overflow-x: auto; }
+
+.def { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-top: 12px; }
+.def dt { font-weight: 700; color: var(--accent); }
+.def dd { margin-top: 4px; }
+.def dd + dt { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+
+details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-top: 10px; }
+summary { padding: 13px 16px; font-weight: 600; cursor: pointer; list-style: none; display: flex; gap: 10px; align-items: baseline; }
+summary::-webkit-details-marker { display: none; }
+summary .n { color: var(--accent); font-variant-numeric: tabular-nums; min-width: 1.4em; }
+summary .art { margin-left: auto; font-size: 0.78rem; font-weight: 500; color: var(--muted); white-space: nowrap; }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.dbody { padding: 12px 16px 16px; }
+
+.table-wrap { overflow-x: auto; margin-top: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+.narrow table { min-width: 0; }
+th { text-align: left; padding: 10px 12px; background: var(--accent-soft); font-weight: 600; }
+td { padding: 9px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.sub td:first-child { padding-left: 28px; color: var(--muted); }
+tr.total td { font-weight: 700; }
+.lead-col td:first-child { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+.two > div, .three > div { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+.two h4, .three h4 { font-size: 0.95rem; margin-bottom: 6px; }
+@media (max-width: 640px) { .three { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+
+.phases { list-style: none; padding: 0; margin-top: 16px; display: grid; gap: 8px; counter-reset: ph; max-width: none; }
+.phases li { counter-increment: ph; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px 12px 54px; position: relative; margin: 0; }
+.phases li::before { content: counter(ph); position: absolute; left: 14px; top: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+.phases b { display: block; }
+.phases span { color: var(--muted); font-size: 0.92rem; }
+
+.nest { margin-top: 16px; }
+.nest .box { border: 1.5px solid var(--accent-mid); border-radius: 10px; padding: 12px; background: var(--card); }
+.nest .box .box { margin-top: 10px; background: var(--accent-soft); }
+.nest .lbl { font-weight: 700; font-size: 0.92rem; }
+.nest .lbl small { font-weight: 500; color: var(--muted); font-size: 0.82rem; }
+.nest .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.nest .chip { font-size: 0.82rem; padding: 4px 9px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); }
+
+.timeline { position: relative; padding-left: 26px; margin-top: 18px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--accent-mid); }
+.tl { position: relative; padding-bottom: 16px; }
+.tl::before { content: ""; position: absolute; left: -24px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+.tl b { display: block; color: var(--accent); font-size: 0.85rem; }
+
+.index-head { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 14px 0 2px 10px; }
+.index-list { list-style: none; padding: 0; margin-top: 0; max-width: none; }
+.index-list li + li { margin-top: 0; }
+.index-list button { width: 100%; text-align: left; background: none; border: none; color: var(--fg); font: inherit; padding: 6px 10px; border-radius: 8px; cursor: pointer; display: flex; gap: 10px; }
+.index-list button:hover { background: var(--accent-soft); }
+.index-list .num { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; min-width: 1.8em; }
+.session-block { margin-top: 26px; }
+.session-block h3 { margin-top: 0; }
+
+.glossary { margin-top: 14px; }
+.glossary dt { font-weight: 700; color: var(--accent); margin-top: 14px; }
+.glossary dd { margin-top: 2px; max-width: 70ch; }
+.glossary h4 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.05rem; margin-top: 24px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+
+.bottom {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 8;
+  background: var(--card); border-top: 1px solid var(--line);
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.bottom-inner { max-width: 780px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.btn { font: inherit; font-weight: 600; font-size: 0.9rem; border: none; border-radius: 8px; padding: 10px 18px; cursor: pointer; }
+.btn.prev { background: var(--accent-soft); color: var(--accent); }
+.btn.next { background: var(--accent); color: var(--bg); }
+.btn:disabled { opacity: 0.35; cursor: default; }
+.count { font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; background: none; border: none; font-family: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="session-num" id="sNum"></span>
+    <span class="session-title" id="sTitle"></span>
+  </div>
+</header>
+<div class="progress"><span id="prog"></span></div>
+
+<!-- =================== PORTADA =================== -->
+<section class="step" data-s="0">
+  <div class="kicker">Finanzas Públicas · Ciencia Política · Universidad de Antioquia</div>
+  <h1>El Estado colombiano en materia fiscal y la política fiscal como instrumento</h1>
+  <p class="lead">Recorrido secuencial por los temas de las dos sesiones, en el orden en que se vieron en clase. Avanza con los botones, con las flechas del teclado o deslizando en el celular. Toca cualquier tema para ir directo; el número del centro de la barra inferior te devuelve a este índice. Al final hay un glosario con todas las definiciones.</p>
+  <div class="session-block"><h3>El Estado colombiano en materia fiscal</h3><div id="idx8"></div></div>
+  <div class="session-block"><h3>La política fiscal como instrumento</h3><div id="idx9"></div></div>
+  <div class="session-block"><h3>Cierre</h3><div id="idx10"></div></div>
+</section>
+
+<!-- =================================================
+     SESIÓN 8 · BLOQUE A · PRINCIPIOS PRESUPUESTALES
+     ================================================= -->
+
+<section class="step" data-s="8" data-b="Principios presupuestales" data-t="El presupuesto y su lugar en el orden jurídico">
+  <div class="kicker">Principios presupuestales</div>
+  <h2>El presupuesto y su lugar en el orden jurídico</h2>
+  <p>Antes de hablar de principios conviene fijar qué es el presupuesto y qué rango tiene la norma que lo regula.</p>
+
+  <dl class="def">
+    <dt>Presupuesto General de la Nación (PGN)</dt>
+    <dd>«La ley anual sobre el presupuesto general de la Nación es el instrumento para el cumplimiento de los planes y programas de desarrollo económico y social» (Decreto 111 de 1996, art. 10). Se aprueba cada año como una ley.</dd>
+    <dt>Partes del PGN (art. 11 del Estatuto)</dt>
+    <dd><strong>Presupuesto de rentas:</strong> estimación de los ingresos corrientes, contribuciones parafiscales administradas por órganos del presupuesto, fondos especiales, recursos de capital e ingresos de los establecimientos públicos nacionales.<br><strong>Presupuesto de gastos o ley de apropiaciones:</strong> las autorizaciones de gasto para las ramas del poder, los órganos de control, ministerios, departamentos administrativos, establecimientos públicos y Policía, distinguiendo funcionamiento, servicio de la deuda e inversión.<br><strong>Disposiciones generales:</strong> normas para asegurar la correcta ejecución del presupuesto, que rigen solo para el año fiscal en que se expiden.</dd>
+    <dt>Apropiación</dt>
+    <dd>Autorización máxima de gasto que el Congreso aprueba para ser comprometida durante la vigencia. Una apropiación permite gastar hasta ese monto; no obliga a gastarlo todo.</dd>
+    <dt>Estatuto Orgánico del Presupuesto (EOP)</dt>
+    <dd>El Decreto 111 de 1996 compila las leyes orgánicas de presupuesto (Ley 38 de 1989, Ley 179 de 1994, Ley 225 de 1995), adicionadas por las leyes 617 de 2000, 819 de 2003 y 1473 de 2011.</dd>
+  </dl>
+
+  <div class="card key">
+    <div class="card-title">Rango cuasiconstitucional</div>
+    <p>El artículo 349 de la Constitución dice que el Congreso discutirá y expedirá el presupuesto «estrictamente de acuerdo con las reglas de la ley orgánica». Restrepo lee aquí una elevación del Estatuto a un rango cuasiconstitucional: la ley anual de presupuesto no puede contradecir la ley orgánica, y a esta se sujetan también los presupuestos de departamentos y municipios.</p>
+    <p>El mismo Restrepo es crítico del Decreto 111: lo llama un estatuto «anacrónico, poco armónico» y, sin exagerar, «probablemente la menos orgánica de las leyes orgánicas».</p>
+  </div>
+  <p class="src">García Garzón, cap. 3. Restrepo, Hacienda pública, cap. V.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Principios presupuestales" data-t="Por qué existen los principios presupuestales">
+  <div class="kicker">Principios presupuestales</div>
+  <h2>Por qué existen los principios presupuestales</h2>
+  <p>Restrepo los presenta como «el compendio de la sabiduría convencional presupuestal», cuya aplicación práctica es apenas parcial pero que simbolizan los ideales hacia los cuales debe orientarse una buena política presupuestal. Son producto histórico del pensamiento liberal de los siglos XVIII y XIX.</p>
+
+  <div class="card key">
+    <div class="card-title">El triple propósito según Sáinz de Bujanda</div>
+    <ol>
+      <li>Un control efectivo sobre el volumen del gasto público, con el ideal de su reducción al mínimo.</li>
+      <li>Un control del Parlamento sobre el Ejecutivo en materia financiera, con el ideal de elevarlo al máximo.</li>
+      <li>Una depurada representación contable de los procesos de ingresos y de gastos públicos.</li>
+    </ol>
+  </div>
+
+  <h3>Legalidad o competencia: el principio que precede a los demás</h3>
+  <p>Restrepo entiende por legalidad que la manera como se desarrolla el ciclo presupuestal (preparación, discusión, aprobación, ejecución y control) debe estar prevista en una norma de alta jerarquía, y que el proceso no puede ser decidido solo por el Ejecutivo: debe contar, al menos en la discusión y la aprobación, con el Congreso, las asambleas o los concejos.</p>
+  <p>Presupuesto e impuestos tienen el mismo origen. Así como en las democracias modernas no pueden imponerse tributos sin aprobación de los representantes (<em>no taxation without representation</em>), tampoco debe haber presupuestos sin discusión y aprobación de esos representantes. Los parlamentos tomaron predominio sobre las coronas cuando estas perdieron la prerrogativa de imponer tributos directamente: es el paso de las monarquías absolutas a las constitucionales, y de estas a la democracia representativa.</p>
+
+  <div class="card note">
+    <div class="card-title">Fuerza jurídica de los principios</div>
+    <p>Corte Constitucional, Sentencia C‑337 de 1993: los principios del Estatuto Orgánico «son precedentes que condicionan la validez del proceso presupuestal, de manera que al no ser tenidos en cuenta vician la legitimidad del mismo».</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública, cap. V, sección VI. García Garzón, cap. 3.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Principios presupuestales" data-t="Los nueve principios del Estatuto Orgánico">
+  <div class="kicker">Principios presupuestales · Decreto 111 de 1996, arts. 12 a 21</div>
+  <h2>Los nueve principios del Estatuto Orgánico</h2>
+  <p>El artículo 12 del Estatuto enumera: planificación, anualidad, universalidad, unidad de caja, programación integral, especialización, inembargabilidad, coherencia macroeconómica y sostenibilidad fiscal. Abre cada uno.</p>
+
+  <details>
+    <summary><span class="n">1</span>Planificación<span class="art">art. 13</span></summary>
+    <div class="dbody"><p>El presupuesto debe guardar concordancia con el Plan Nacional de Desarrollo, el Plan Nacional de Inversiones, el Plan Financiero y el Plan Operativo Anual de Inversiones.</p><p>Restrepo distingue dos coordinaciones: la de mediano plazo, con el Plan de Desarrollo y sus presupuestos plurianuales de inversión (art. 339 C.P.), y la de corto plazo, entre el presupuesto anual, el plan financiero y el plan operativo anual de inversiones. El presupuesto anual es una pieza que debe armonizarse con los demás mecanismos con que el Estado planifica.</p></div>
+  </details>
+  <details>
+    <summary><span class="n">2</span>Anualidad<span class="art">art. 14</span></summary>
+    <div class="dbody"><p>El año fiscal comienza el 1 de enero y termina el 31 de diciembre. Después del 31 de diciembre no pueden asumirse compromisos con cargo a las apropiaciones del año que se cierra; los saldos no comprometidos expiran sin excepción.</p><p>Su raíz es política: obligar al Ejecutivo a pedir cada año la autorización de gasto acrecentaba el poder de los parlamentos. Las reservas presupuestales y las vigencias futuras son los mecanismos con que el sistema maneja compromisos que desbordan el año.</p></div>
+  </details>
+  <details>
+    <summary><span class="n">3</span>Universalidad<span class="art">art. 15</span></summary>
+    <div class="dbody"><p>El presupuesto contendrá la totalidad de los gastos públicos que se espere realizar durante la vigencia. Ninguna autoridad podrá efectuar gastos públicos, erogaciones con cargo al Tesoro o transferir crédito alguno que no figure en el presupuesto. Busca acabar con los fondos secretos y el gasto por fuera del control parlamentario.</p><p>La Corte ha señalado que la universalidad se predica del gasto y no necesariamente de todos los ingresos, por lo dispuesto en el artículo 347 C.P.</p></div>
+  </details>
+  <details>
+    <summary><span class="n">4</span>Unidad de caja<span class="art">art. 16</span></summary>
+    <div class="dbody"><p>Con el recaudo de todas las rentas y recursos de capital se atiende el pago oportuno de las apropiaciones. La doctrina francesa lo llama «no asignación de rentas»: todos los ingresos entran sin destinación previa a un fondo común, desde donde la autoridad presupuestal los orienta hacia lo que estime prioritario.</p><p>Restrepo advierte que en Colombia tiene «una aplicación muy deficiente», porque una porción grande de los ingresos ya viene comprometida con fines específicos. Distingue:</p><ul><li><strong>Rentas de destinación específica:</strong> impuestos, tasas, multas y rentas de las cuales el Estado no puede disponer libremente porque la ley predeterminó su destino.</li><li><strong>Rentas atadas:</strong> porciones de los ingresos ordinarios asignadas a ciertos gastos, como ocurrió con el situado fiscal para educación y salud.</li></ul><p>El artículo 359 C.P. prohíbe las rentas nacionales de destinación específica, salvo excepciones taxativas (participaciones territoriales, inversión social, entre otras).</p></div>
+  </details>
+  <details>
+    <summary><span class="n">5</span>Programación integral<span class="art">art. 17</span></summary>
+    <div class="dbody"><p>Todo programa presupuestal debe contemplar simultáneamente los gastos de inversión y de funcionamiento que exijan su ejecución y operación. Un hospital construido sin recursos para operarlo es lo que este principio busca evitar.</p></div>
+  </details>
+  <details>
+    <summary><span class="n">6</span>Especialización<span class="art">art. 18</span></summary>
+    <div class="dbody"><p>Las apropiaciones deben referirse en cada órgano a su objeto y funciones, y se ejecutarán estrictamente conforme al fin para el cual fueron programadas. De aquí se desprende la clasificación del gasto por secciones (ramas y órganos) y por tipo (funcionamiento, servicio de la deuda e inversión).</p></div>
+  </details>
+  <details>
+    <summary><span class="n">7</span>Inembargabilidad<span class="art">art. 19</span></summary>
+    <div class="dbody"><p>Son inembargables las rentas incorporadas al PGN, así como los bienes y derechos de los órganos que lo conforman. Protege la continuidad de los servicios del Estado. La jurisprudencia ha admitido excepciones; por ejemplo, créditos que constan en sentencias pueden ejecutarse con embargo después de cierto plazo desde que son exigibles.</p></div>
+  </details>
+  <details>
+    <summary><span class="n">8</span>Coherencia macroeconómica<span class="art">art. 20</span></summary>
+    <div class="dbody"><p>«El presupuesto debe ser compatible con las metas macroeconómicas fijadas por el Gobierno en coordinación con la Junta Directiva del Banco de la República». Restrepo lo considera algo redundante porque cabría dentro de la planificación. Su valor está en recordar que el presupuesto es un instrumento de política económica y debe coordinarse con la política monetaria.</p></div>
+  </details>
+  <details>
+    <summary><span class="n">9</span>Sostenibilidad y estabilidad fiscal<span class="art">Ley 1473 de 2011, art. 7</span></summary>
+    <div class="dbody"><p>«El presupuesto tendrá en cuenta que el crecimiento del gasto debe ser acorde con la evolución de los ingresos de largo plazo o estructurales de la economía y debe ser una herramienta de estabilización del ciclo económico, a través de una regla fiscal».</p><p>Reemplazó al principio de <strong>homeostasis presupuestal</strong>, según el cual el crecimiento real del presupuesto de rentas debía guardar congruencia con el crecimiento de la economía. García Garzón explica que el término viene de la anatomía (el crecimiento unísono de las partes del cuerpo) y que con la reforma la ejecución del gasto pasó de ser procíclica a ser contracíclica. Es el puente con la siguiente sesión.</p></div>
+  </details>
+  <p class="src">García Garzón, cap. 3. Restrepo, Hacienda pública, cap. V, sección VI.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Principios presupuestales" data-t="Unidad presupuestal y política cuasifiscal">
+  <div class="kicker">Principios presupuestales</div>
+  <h2>Unidad presupuestal y política cuasifiscal</h2>
+  <p>Restrepo agrega dos principios que no aparecen en la enumeración legal: la <strong>unidad presupuestal</strong> y el <strong>equilibrio presupuestal</strong> (este último lo veremos con el artículo 347).</p>
+
+  <dl class="def">
+    <dt>Unidad presupuestal</dt>
+    <dd>Todos los ingresos y todos los gastos del Estado deben figurar en un solo documento. Si la información está fraccionada, se dificulta el control político del Congreso, el control fiscal y la evaluación de si las prioridades del gasto coinciden con lo que quiere la comunidad.</dd>
+  </dl>
+
+  <h3>Por qué hoy se cumple solo parcialmente</h3>
+  <ol>
+    <li><strong>Dispersión de personerías jurídicas.</strong> Departamentos, municipios, entidades descentralizadas por servicios y empresas del Estado tienen presupuestos propios. El PGN solo recoge al Gobierno Nacional Central y a los establecimientos públicos nacionales.</li>
+    <li><strong>Política cuasifiscal.</strong> Informaciones indispensables para entender la gestión financiera del Estado que tradicionalmente no aparecen en el presupuesto: pasivos pensionales, costo fiscal de exenciones y deducciones, contingencias por garantías y avales.</li>
+    <li><strong>Sistema presupuestal.</strong> El Estatuto distingue el presupuesto de un sistema más amplio (plan financiero, plan operativo anual de inversiones, presupuesto anual), lo que acerca la unidad a la «gestión financiera del Estado» en su conjunto.</li>
+    <li><strong>Presupuestos adicionales.</strong> En la práctica colombiana la unidad se ha quebrantado por las adiciones que durante el año modifican el presupuesto básico.</li>
+  </ol>
+
+  <blockquote>En los años ochenta más que hoy, la adopción de medidas fiscales que no se enmarcan en el contexto del presupuesto fue tan común en la región que en algunos casos este último pasó a ser un instrumento de valor más bien simbólico, cuyo ritual de aprobación obedecía más a normativas legales que a necesidades reales de planificación de la acción pública.<cite>CEPAL, El pacto fiscal, citada por Restrepo</cite></blockquote>
+
+  <div class="card key">
+    <div class="card-title">Respuesta institucional</div>
+    <p>Las leyes orgánicas modernas exigen incluir esas informaciones cuasifiscales junto al presupuesto. En Colombia, la Ley 819 de 2003 creó el <strong>Marco Fiscal de Mediano Plazo</strong>, que reporta pasivos contingentes, costo fiscal de los beneficios tributarios y metas de balance a diez años.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública, cap. V. García Garzón, cap. 3.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Principios presupuestales" data-t="El sistema presupuestal">
+  <div class="kicker">Principios presupuestales · Decreto 111 de 1996, art. 6</div>
+  <h2>El sistema presupuestal</h2>
+  <p>Desde la Ley 38 de 1989 el presupuesto dejó de manejarse como un hecho aislado. «El sistema presupuestal está constituido por el plan financiero, el plan operativo anual de inversiones y el presupuesto anual de la Nación» (art. 6). Restrepo explica la lógica: un presupuesto anual no basta para asegurar la estabilidad, porque influyen variables crediticias, cambiarias e inflacionarias, y hechos que desbordan el año. Hacen falta «radares» que anticipen lo que viene.</p>
+
+  <dl class="def">
+    <dt>Plan financiero</dt>
+    <dd>Instrumento de planificación y gestión financiera del sector público que toma en consideración las previsiones de ingresos, gastos, déficit y su financiación, compatibles con el Programa Anual de Caja y las políticas cambiaria y monetaria (art. 7). Lo elabora el Ministerio de Hacienda con el DNP y lo aprueba el CONPES, previo concepto del CONFIS. Desde la Ley 819 de 2003 hace parte del Marco Fiscal de Mediano Plazo.</dd>
+    <dt>Plan Operativo Anual de Inversiones (POAI)</dt>
+    <dd>Señala los proyectos de inversión clasificados por sectores, órganos y programas, en concordancia con el Plan Nacional de Inversiones (art. 8). Lo prepara el DNP.</dd>
+    <dt>Banco Nacional de Programas y Proyectos</dt>
+    <dd>Ningún proyecto de inversión puede ejecutarse si no está registrado en él, tras evaluación social, técnica y económica del DNP (art. 9).</dd>
+    <dt>Marco Fiscal de Mediano Plazo (MFMP)</dt>
+    <dd>Creado por la Ley 819 de 2003. Diagnóstico anual del panorama fiscal de los próximos diez años, con metas de balance primario, pasivos contingentes y costo de beneficios tributarios. La regla fiscal se materializa a través del MFMP (Ley 1473, art. 4).</dd>
+    <dt>Marco de Gasto de Mediano Plazo (MGMP)</dt>
+    <dd>Techos presupuestales sectoriales para los siguientes cuatro años. El proyecto de presupuesto coincide con las metas del primer año del MGMP.</dd>
+  </dl>
+  <div class="card note">
+    <div class="card-title">Objetivos del sistema (Decreto 4730 de 2005, art. 2)</div>
+    <p>El equilibrio entre ingresos y gastos que permita la sostenibilidad de las finanzas públicas en el mediano plazo; la asignación de recursos de acuerdo con las disponibilidades de ingreso y las prioridades de gasto; y la utilización eficiente de los recursos en un contexto de transparencia.</p>
+  </div>
+  <p class="src">García Garzón, cap. 3. Restrepo, Hacienda pública. Cárdenas, cap. 6.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 8 · BLOQUE B · CICLO PRESUPUESTAL
+     ================================================= -->
+
+<section class="step" data-s="8" data-b="Ciclo presupuestal" data-t="Las fases del ciclo presupuestal">
+  <div class="kicker">Ciclo presupuestal · Decreto 4730 de 2005, art. 5</div>
+  <h2>Las fases del ciclo presupuestal</h2>
+  <p>El Decreto 4730 de 2005 reemplazó lo que se llamaba «proceso presupuestal» por el «ciclo presupuestal». Cada fase tiene actores distintos y en cada una se reparte el poder entre Gobierno y Congreso de manera diferente.</p>
+
+  <ol class="phases">
+    <li><b>Programación del proyecto de presupuesto</b><span>Las entidades preparan anteproyectos; el Ministerio de Hacienda y el DNP los consolidan bajo el MFMP y el MGMP.</span></li>
+    <li><b>Presentación del proyecto al Congreso</b><span>Anteproyecto en abril; proyecto definitivo en los primeros diez días de la legislatura que empieza el 20 de julio.</span></li>
+    <li><b>Estudio y aprobación por el Congreso</b><span>Comisiones económicas conjuntas en primer debate; plenarias en segundo; plazo hasta el 20 de octubre.</span></li>
+    <li><b>Liquidación del PGN</b><span>Decreto del Gobierno que incorpora al proyecto las modificaciones hechas por el Congreso.</span></li>
+    <li><b>Ejecución presupuestal</b><span>Compromisos, obligaciones y pagos a través del Programa Anual Mensualizado de Caja (PAC).</span></li>
+    <li><b>Modificaciones y autorizaciones al presupuesto</b><span>Reducciones, aplazamientos, traslados y adiciones durante la vigencia.</span></li>
+    <li><b>Seguimiento y evaluación</b><span>Control político del Congreso, control fiscal de la Contraloría y seguimiento del DNP.</span></li>
+  </ol>
+  <div class="card key">
+    <div class="card-title">Lectura política</div>
+    <p>Cárdenas anota que, aunque en la preparación participa todo el gabinete, la decisión de asignación se centraliza en el Ministerio de Hacienda y el DNP. Restrepo agrega que el ministro de Hacienda es el «órgano de comunicación del Gobierno con el Congreso en materias presupuestales» (art. 60 EOP), una preeminencia típica de los sistemas presidenciales.</p>
+  </div>
+  <p class="src">García Garzón, cap. 3. Cárdenas, cap. 6. Restrepo, Hacienda pública, cap. V.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Ciclo presupuestal" data-t="Programación y presentación">
+  <div class="kicker">Ciclo presupuestal · Fases 1 y 2</div>
+  <h2>Programación y presentación del proyecto</h2>
+
+  <h3>Antes del presupuesto: el Plan Nacional de Desarrollo</h3>
+  <p>Cada gobierno presenta al Congreso su Plan Nacional de Desarrollo, que el Congreso tiene tres meses para discutir y aprobar. El presupuesto de cada año debe prepararse según sus prioridades. Cárdenas recoge dos críticas: la ley del Plan se ha vuelto vehículo de múltiples cambios legales sin relación con la planeación, y el Plan de Inversiones incluye más proyectos de los que tienen viabilidad fiscal.</p>
+
+  <h3>Programación</h3>
+  <ul>
+    <li>Las entidades del PGN elaboran <strong>anteproyectos</strong> según los manuales de la Dirección General del Presupuesto Público Nacional (DGPPN) y del DNP.</li>
+    <li>Se conforman <strong>comités sectoriales de presupuesto</strong>, con la DGPPN, el DNP y los jefes de las entidades de cada sector.</li>
+    <li>Antes del 15 de julio, Hacienda y el DNP someten el <strong>Marco de Gasto de Mediano Plazo</strong> a aprobación del CONPES.</li>
+    <li>El DNP prepara el <strong>POAI</strong> con los proyectos registrados en el Banco de Proyectos.</li>
+    <li>Desde la Ley 1473 de 2011, todo debe ser consistente con la <strong>regla fiscal</strong> contenida en el MFMP.</li>
+  </ul>
+
+  <h3>Presentación</h3>
+  <ul>
+    <li><strong>Primera semana de abril:</strong> el Gobierno presenta a las comisiones económicas el anteproyecto (Ley 225 de 1995, art. 20), para que conozcan con antelación los grandes lineamientos.</li>
+    <li><strong>Primeros diez días de la legislatura</strong>, que empieza el 20 de julio: el ministro de Hacienda radica el proyecto definitivo ante la Secretaría de la Cámara (art. 346 C.P.).</li>
+    <li>Junto con el proyecto va el mensaje presidencial con el resumen del MFMP y los informes de ejecución presupuestal de la vigencia anterior y de la vigencia en curso.</li>
+  </ul>
+  <div class="card note">
+    <div class="card-title">Si los ingresos no alcanzan</div>
+    <p>Si las rentas legalmente autorizadas no son suficientes para los gastos proyectados, el Gobierno propone por separado un proyecto de ley con nuevas rentas o modificación de las existentes (art. 347 C.P. y art. 54 EOP). Si el presupuesto se aprueba sin que se haya expedido esa ley, el Gobierno suspende por decreto las apropiaciones sin financiación (art. 55 EOP).</p>
+  </div>
+  <p class="src">Cárdenas, cap. 6. García Garzón, cap. 3 y anexos. Restrepo, Hacienda pública, cap. V.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Ciclo presupuestal" data-t="Estudio y aprobación en el Congreso">
+  <div class="kicker">Ciclo presupuestal · Fase 3</div>
+  <h2>Estudio y aprobación en el Congreso</h2>
+  <p>Todas las normas de trámite buscan una decisión oportuna. Restrepo subraya que se considera grave que terminen las sesiones sin una decisión presupuestal.</p>
+
+  <div class="timeline">
+    <div class="tl"><b>20 de julio a los primeros diez días</b>Radicación del proyecto. Pasa a las comisiones económicas (terceras y cuartas de Senado y Cámara, según la Sentencia C‑353 de 1995).</div>
+    <div class="tl"><b>Antes del 15 de agosto</b>Las comisiones conjuntas pueden devolver el proyecto al Gobierno si no se ajusta al Estatuto Orgánico. El ministro tiene hasta el 30 de agosto para reenviarlo con las enmiendas.</div>
+    <div class="tl"><b>Antes del 15 de septiembre</b>Las comisiones aprueban el monto total del presupuesto.</div>
+    <div class="tl"><b>Antes del 25 de septiembre</b>Cierre del primer debate. Se delibera en sesión conjunta de las comisiones, pero se vota por separado en cada cámara (art. 57 EOP).</div>
+    <div class="tl"><b>1 a 20 de octubre</b>Segundo debate en las plenarias, que pueden sesionar simultáneamente.</div>
+    <div class="tl"><b>Medianoche del 20 de octubre</b>Fecha límite para expedir el PGN.</div>
+  </div>
+  <p>La ley se aprueba por secciones y a nivel de partidas globales de funcionamiento y servicio de la deuda, y por programas y subprogramas en el caso de la inversión.</p>
+
+  <h3>Restricción a la iniciativa parlamentaria (art. 351 C.P.)</h3>
+  <p>El Congreso no puede aumentar las partidas propuestas por el Gobierno ni incluir nuevas sin aceptación escrita del ministro del ramo. Puede eliminar o reducir partidas, salvo las del servicio de la deuda, las obligaciones contractuales del Estado, la atención completa de los servicios ordinarios de la administración y las inversiones de los planes de desarrollo. Tampoco puede aumentar los cómputos de rentas sin concepto favorable del ministro de Hacienda (art. 62 EOP).</p>
+  <p>La restricción viene de las reformas constitucionales de 1945 y 1968. Lleras Restrepo, en su Memoria de Hacienda de 1942, pedía suprimir la iniciativa parlamentaria en gastos porque las leyes que creaban gastos se habían multiplicado «en una forma casi inverosímil». Lleras Camargo, en 1944, describió el presupuesto como «un curioso engaño, consentido por todos los que participan en su elaboración».</p>
+
+  <div class="two">
+    <div>
+      <h4>Si el Congreso no expide el presupuesto</h4>
+      <p>Rige el proyecto presentado por el Gobierno, con las modificaciones aprobadas en primer debate (art. 348 C.P.; art. 59 EOP). La penalización recae sobre el Congreso.</p>
+    </div>
+    <div>
+      <h4>Si el Gobierno no lo presenta a tiempo</h4>
+      <p>Rige el presupuesto del año anterior, mediante decreto de repetición antes del 10 de diciembre (art. 64 EOP). La penalización recae sobre el Gobierno, porque con la inflación ese presupuesto es menor en términos reales.</p>
+    </div>
+  </div>
+  <p class="src" style="margin-top:10px">La Corte, en la Sentencia C‑1645 de 2000, retiró del art. 64 la hipótesis de repetir el presupuesto anterior cuando el Congreso lo imprueba, por contradecir el art. 348. Así, el Estado nunca queda sin presupuesto. Restrepo, Hacienda pública, cap. V. Cárdenas, cap. 6. García Garzón, anexo 5.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Ciclo presupuestal" data-t="Liquidación, ejecución, modificaciones y control">
+  <div class="kicker">Ciclo presupuestal · Fases 4 a 7</div>
+  <h2>Liquidación, ejecución, modificaciones y control</h2>
+
+  <h3>Liquidación</h3>
+  <p>Aprobada y sancionada la ley, el Gobierno expide el decreto de liquidación, que toma como base el proyecto presentado por el Gobierno e inserta todas las modificaciones hechas por el Congreso (art. 67 EOP).</p>
+
+  <h3>Ejecución: el camino de un peso del presupuesto</h3>
+  <dl class="def">
+    <dt>1. Certificado de disponibilidad presupuestal (CDP)</dt>
+    <dd>Documento que garantiza la existencia de apropiación disponible y libre de afectación para asumir un compromiso (Decreto 568 de 1996, art. 19).</dd>
+    <dt>2. Compromiso y registro presupuestal</dt>
+    <dd>Comprometer es firmar el contrato según la apropiación vigente. El registro presupuestal perfecciona el compromiso y afecta en forma definitiva la apropiación, garantizando que no se desvíe a otro fin (art. 20).</dd>
+    <dt>3. Obligación</dt>
+    <dd>Recibir los bienes o servicios y obligarse al pago. Para obligar se necesita disponibilidad de PAC. Fiscalmente, la ejecución se mide por obligaciones.</dd>
+    <dt>4. Pago a través del PAC</dt>
+    <dd>El Programa Anual Mensualizado de Caja define el monto máximo mensual de fondos disponibles en la Cuenta Única Nacional (art. 73 EOP). Lo aprueba el CONFIS. Sirve para modular la ejecución, porque ingresos y gastos no se causan de manera regular a lo largo del año.</dd>
+    <dt>Reservas presupuestales y cuentas por pagar</dt>
+    <dd>Los compromisos que no se cumplieron antes del 31 de diciembre se constituyen en reservas, para obligarse y pagarse en la vigencia siguiente. Las obligaciones exigibles al 31 de diciembre pero no pagadas se constituyen en cuentas por pagar.</dd>
+  </dl>
+
+  <h3>Modificaciones durante la vigencia</h3>
+  <div class="three">
+    <div><h4>Reducción o aplazamiento</h4><p>El Ejecutivo reduce o aplaza rubros por decreto si los ingresos caen por debajo de lo proyectado, previo concepto del consejo de ministros.</p></div>
+    <div><h4>Traslados</h4><p>Mover recursos de un proyecto a otro. Si no altera la composición por programa, lo hace el Ejecutivo; si la altera, requiere ley.</p></div>
+    <div><h4>Adiciones</h4><p>Para aumentar el gasto, el Gobierno presenta un proyecto de ley de adición, con el mismo trámite que el presupuesto.</p></div>
+  </div>
+
+  <h3>Seguimiento y control</h3>
+  <p>El control <strong>político</strong> está a cargo del Congreso; el control <strong>fiscal</strong>, de la Contraloría General de la República. El DNP presenta al Congreso informes semestrales de seguimiento al Plan Nacional de Desarrollo. La ciudadanía puede seguir la ejecución en el Portal de Transparencia Económica.</p>
+  <p class="src">García Garzón, cap. 3 y anexo 6. Cárdenas, cap. 6. Restrepo, Hacienda pública, cap. V.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 8 · BLOQUE C · ESTRUCTURA DEL ESTADO
+     ================================================= -->
+
+<section class="step" data-s="8" data-b="Estructura del Estado colombiano" data-t="La estructura del sector público">
+  <div class="kicker">Estructura del Estado colombiano</div>
+  <h2>La estructura del sector público</h2>
+  <p>Cárdenas recuerda que «finanzas públicas» abarca impuestos y gasto, y también la participación del Estado en los mercados de capitales y de deuda y en la producción, a través de empresas públicas y sociedades de economía mixta. Para ordenar el análisis se usa la clasificación de los manuales del FMI.</p>
+
+  <div class="nest">
+    <div class="box">
+      <div class="lbl">Sector Público Consolidado (SPC)</div>
+      <div class="box">
+        <div class="lbl">Sector Público No Financiero (SPNF)</div>
+        <div class="box">
+          <div class="lbl">Gobierno General o administraciones públicas <small>se financian con impuestos, aportes y transferencias</small></div>
+          <div class="row">
+            <span class="chip"><strong>Administración central (GNC):</strong> Presidencia, ministerios, departamentos administrativos, Congreso, Rama Judicial, órganos de control y electoral, establecimientos públicos nacionales</span>
+            <span class="chip"><strong>Administración descentralizada:</strong> departamentos, municipios y establecimientos descentralizados</span>
+            <span class="chip"><strong>Seguridad social:</strong> entidades de salud y pensiones, como Colpensiones</span>
+          </div>
+        </div>
+        <div class="row"><span class="chip"><strong>Empresas públicas no financieras:</strong> se financian vendiendo bienes y servicios (servicios públicos domiciliarios, Ecopetrol como compañía mixta)</span></div>
+      </div>
+      <div class="row">
+        <span class="chip"><strong>Instituciones financieras públicas:</strong> Banco Agrario, FOGAFIN</span>
+        <span class="chip"><strong>Banco central:</strong> Banco de la República</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Tres definiciones que se usan en Colombia</h3>
+  <div class="three">
+    <div><h4>GNC</h4><p>La definición con mejor información histórica y comparabilidad internacional. Sobre ella opera la regla fiscal.</p></div>
+    <div><h4>SPNF</h4><p>Todas las administraciones públicas más las empresas públicas no financieras. Información confiable desde finales de los sesenta.</p></div>
+    <div><h4>SPC</h4><p>El SPNF más las instituciones financieras públicas y el banco central.</p></div>
+  </div>
+  <div class="card key">
+    <div class="card-title">Por qué importa</div>
+    <p>Para cada nivel, el balance fiscal es la diferencia entre sus ingresos (impuestos, tasas, contribuciones, venta de servicios) y sus gastos corrientes y de inversión. Una cifra de deuda o déficit siempre pertenece a un perímetro. La deuda neta del GNC, por ejemplo, fue 48,4% del PIB en 2019 y 58,6% en 2025 según el MFMP 2026; las cifras del Gobierno General son otras.</p>
+  </div>
+  <p class="src">Cárdenas, cap. 6, gráfico 6.2. MFMP 2026.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Estructura del Estado colombiano" data-t="Descentralización territorial">
+  <div class="kicker">Estructura del Estado colombiano</div>
+  <h2>Descentralización territorial</h2>
+  <p>Colombia es un Estado unitario, pero en términos de recursos que se ejecutan localmente se parece más a un Estado federal (Cárdenas). La descentralización, reforzada por la Constitución de 1991, otorga mayor autonomía política, fiscal y administrativa a departamentos y municipios.</p>
+
+  <dl class="def">
+    <dt>Descentralización territorial</dt>
+    <dd>32 departamentos y 1.123 municipios, incluidos siete distritos especiales (Bogotá, Cartagena, Santa Marta, Barranquilla, Buenaventura, Mompox y Tumaco). Cada uno tiene presupuesto propio.</dd>
+    <dt>Descentralización por servicios</dt>
+    <dd>Entidades nacionales con autonomía financiera y presupuesto propio, como establecimientos públicos y empresas industriales y comerciales del Estado.</dd>
+    <dt>Federalismo fiscal y Sistema General de Participaciones (SGP)</dt>
+    <dd>El federalismo fiscal asigna ciertos ingresos y gastos a las entidades territoriales. El SGP define el monto y la distribución de las transferencias que financian buena parte de lo que proveen los territorios, sobre todo salud y educación. Su reparto considera necesidades básicas insatisfechas, población, eficiencia fiscal y eficiencia administrativa.</dd>
+  </dl>
+  <div class="card note">
+    <div class="card-title">Dos problemas que señala Cárdenas</div>
+    <p>La proliferación de criterios de distribución del SGP (42) complica la asignación y el seguimiento, y el sistema no considera las <strong>brechas fiscales</strong>, es decir, la diferencia entre necesidades de gasto y capacidad de recaudo de cada territorio.</p>
+  </div>
+  <div class="card key">
+    <div class="card-title">Ciclo político</div>
+    <p>La cercanía a las elecciones locales lleva a que los gobiernos territoriales gasten más para ganar apoyos. En el año electoral 2015 el balance territorial fue un déficit de 0,4% del PIB; en 2016, después de elecciones, un superávit de 0,3% del PIB.</p>
+  </div>
+  <p class="src">Cárdenas, cap. 6. Restrepo, Hacienda pública, cap. V.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Estructura del Estado colombiano" data-t="Actores institucionales del proceso fiscal">
+  <div class="kicker">Estructura del Estado colombiano</div>
+  <h2>Actores institucionales del proceso fiscal</h2>
+  <div class="table-wrap lead-col">
+    <table>
+      <thead><tr><th>Actor</th><th>Papel en el ciclo presupuestal y fiscal</th></tr></thead>
+      <tbody>
+        <tr><td>Ministerio de Hacienda</td><td>Consolida y presenta el proyecto de presupuesto; es el canal oficial del Gobierno ante el Congreso; elabora el MFMP; administra el recaudo y la deuda.</td></tr>
+        <tr><td>DGPPN</td><td>Dirección General del Presupuesto Público Nacional, dentro de Hacienda: manuales de programación, disposiciones generales, asesoría al Congreso, modificaciones del PAC.</td></tr>
+        <tr><td>DNP</td><td>Prepara el Plan Nacional de Desarrollo y el POAI, administra el Banco de Proyectos, evalúa la inversión y hace seguimiento al Plan.</td></tr>
+        <tr><td>CONFIS</td><td>Consejo Superior de Política Fiscal: aprueba el PAC, conceptúa sobre el plan financiero, autoriza vigencias futuras y activa la cláusula de escape de la regla fiscal.</td></tr>
+        <tr><td>CONPES</td><td>Aprueba el plan financiero y el Marco de Gasto de Mediano Plazo; declara proyectos de importancia estratégica.</td></tr>
+        <tr><td>Congreso</td><td>Aprueba el presupuesto, las leyes tributarias y el Plan; ejerce control político.</td></tr>
+        <tr><td>Contraloría</td><td>Control fiscal de la ejecución de los recursos públicos.</td></tr>
+        <tr><td>Corte Constitucional</td><td>Controla la constitucionalidad de leyes presupuestales y tributarias y de los decretos de emergencia.</td></tr>
+        <tr><td>CARF</td><td>Comité Autónomo de la Regla Fiscal, creado por la Ley 2155 de 2021: órgano técnico independiente que vigila la regla.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card note">
+    <div class="card-title">Una pregunta abierta</div>
+    <p>Restrepo critica fallos de la Corte que han ordenado gastos públicos generales sin presupuestación previa, y se pregunta: «¿quién decreta finalmente el gasto público en Colombia? ¿El Congreso o la Corte Constitucional?». La pregunta ilustra que el poder fiscal también se disputa entre ramas.</p>
+  </div>
+  <p class="src">García Garzón, cap. 3. Restrepo, Hacienda pública, cap. V. MFMP 2026.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Estructura del Estado colombiano" data-t="En qué gasta el Estado y por qué es tan rígido">
+  <div class="kicker">Estructura del Estado colombiano</div>
+  <h2>En qué gasta el Estado y por qué es tan rígido</h2>
+
+  <dl class="def">
+    <dt>Gastos de funcionamiento</dt>
+    <dd>Apropiaciones que garantizan el normal funcionamiento de las actividades administrativas, técnicas y operativas: servicios personales (nómina), gastos generales (bienes y servicios) y transferencias.</dd>
+    <dt>Transferencias</dt>
+    <dd>Pagos unilaterales a personas, entidades o territorios, sin contrapartida de un bien o servicio: SGP, pensiones, aseguramiento en salud.</dd>
+    <dt>Servicio de la deuda</dt>
+    <dd>Pago de intereses y amortizaciones de la deuda interna y externa.</dd>
+    <dt>Gastos de inversión</dt>
+    <dd>Buscan crear, ampliar o recuperar la capacidad de producción y provisión de bienes y servicios del Estado: infraestructura, aulas, y también subsidios que mejoran el capital humano.</dd>
+  </dl>
+
+  <h3>El PGN de 2019</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Concepto</th><th class="num">Billones</th><th class="num">% del PIB</th><th class="num">% del PGN</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Funcionamiento</strong></td><td class="num">160,4</td><td class="num">15,2</td><td class="num">61,9</td></tr>
+        <tr class="sub"><td>Gastos de personal</td><td class="num">31,3</td><td class="num">3,0</td><td class="num">12,1</td></tr>
+        <tr class="sub"><td>Transferencias</td><td class="num">117,7</td><td class="num">11,1</td><td class="num">45,4</td></tr>
+        <tr class="sub"><td>de ellas, SGP</td><td class="num">41,3</td><td class="num">3,9</td><td class="num">15,9</td></tr>
+        <tr class="sub"><td>de ellas, pensiones</td><td class="num">32,0</td><td class="num">3,0</td><td class="num">12,4</td></tr>
+        <tr><td><strong>Servicio de la deuda</strong></td><td class="num">51,9</td><td class="num">4,9</td><td class="num">20,0</td></tr>
+        <tr class="sub"><td>Intereses</td><td class="num">29,1</td><td class="num">2,8</td><td class="num">11,2</td></tr>
+        <tr><td><strong>Inversión</strong></td><td class="num">46,8</td><td class="num">4,4</td><td class="num">18,1</td></tr>
+        <tr class="total"><td>Total</td><td class="num">259,2</td><td class="num">24,5</td><td class="num">100,0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:10px">Cárdenas concluye que el gasto en Colombia tiene un sesgo a favor del funcionamiento: las transferencias pasaron de 3,9% del PIB en 1990 a 11,5% en 2018.</p>
+
+  <h3>Inflexibilidades presupuestales</h3>
+  <ul>
+    <li><strong>Rentas de destinación específica:</strong> pueden representar el 30% de la tributación total. La excepción constitucional de la «inversión social» ha permitido su proliferación.</li>
+    <li><strong>Pisos de gasto</strong> fijados por ley, como los del SENA y el ICBF.</li>
+    <li><strong>Vigencias futuras:</strong> compromisos de recursos de años siguientes para proyectos plurianuales.</li>
+    <li><strong>Salarios y pensiones</strong> protegidos por normas constitucionales y jurisprudencia.</li>
+  </ul>
+  <div class="card key">
+    <div class="card-title">Resultado</div>
+    <p>Según Cárdenas, más del 90% del presupuesto anual está predeterminado por disposiciones anteriores, una de las proporciones más altas de América Latina. Por eso la inversión en infraestructura suele ser la variable de ajuste cuando hay que recortar.</p>
+  </div>
+  <blockquote>El proceso presupuestal [...] no puede ser obstaculizado con mecanismos de preasignación de rentas a determinados fines que le restan la necesaria flexibilidad al manejo de las finanzas públicas y, por consiguiente, menoscaban la función política de orientar el gasto.<cite>Corte Constitucional, Sentencia C‑317 de 1998, citada por Restrepo</cite></blockquote>
+  <p class="src">Cárdenas, cap. 6, cuadro 6.2. García Garzón, cap. 2. Restrepo, Hacienda pública.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 8 · BLOQUE D · CONSTITUCIÓN ECONÓMICA
+     ================================================= -->
+
+<section class="step" data-s="8" data-b="Constitución económica de 1991" data-t="Los tributos en el artículo 338">
+  <div class="kicker">Constitución económica de 1991</div>
+  <h2>Los tributos en el artículo 338</h2>
+  <p>«En tiempo de paz, solamente el Congreso, las asambleas departamentales y los concejos distritales y municipales podrán imponer contribuciones fiscales o parafiscales». Restrepo señala que aquí la Carta llama «contribuciones fiscales» al conjunto de los tributos y separa como categoría especial las parafiscales.</p>
+
+  <dl class="def">
+    <dt>Impuesto</dt>
+    <dd>Pago obligatorio sin contraprestación específica. La carga se distribuye según capacidad de pago y su finalidad es atender los gastos del Estado. Para los impuestos, la ley, ordenanza o acuerdo debe fijar directamente sujetos activos y pasivos, hechos y bases gravables, y tarifas.</dd>
+    <dt>Tasa</dt>
+    <dd>Pago por un servicio que presta el Estado; busca recuperar total o parcialmente su costo. Restrepo aclara que la diferencia de fondo con el impuesto está en la existencia de una contrapartida proporcional, porque el carácter «voluntario» de la tasa se desdibuja cuando el servicio es un monopolio estatal.</dd>
+    <dt>Contribución especial</dt>
+    <dd>Pago por una inversión pública que beneficia a un grupo identificable. El ejemplo clásico es la contribución de valorización.</dd>
+    <dt>Contribución parafiscal</dt>
+    <dd>«Institución intermedia entre la tasa administrativa y el impuesto»: pagos de ciertos usuarios para financiar de manera autónoma organismos públicos o privados que no prestan servicios administrativos propiamente dichos. Ejemplos: cotizaciones a la seguridad social, la retención cafetera que nutre el Fondo Nacional del Café.</dd>
+  </dl>
+  <div class="card key">
+    <div class="card-title">Legalidad diferenciada</div>
+    <p>Para tasas y contribuciones, la ley puede permitir que autoridades administrativas fijen la tarifa, siempre que la ley defina el sistema y el método para calcular costos y beneficios. En la práctica, la jurisprudencia ha aplicado a las parafiscales este régimen de legalidad más flexible.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública, capítulos sobre tributos y parafiscalidad.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Constitución económica de 1991" data-t="El articulado presupuestal: un sistema de contrapesos">
+  <div class="kicker">Constitución económica de 1991 · Título XII</div>
+  <h2>El articulado presupuestal: un sistema de contrapesos</h2>
+  <p>La Constitución reparte el poder fiscal: el Gobierno propone, el Congreso aprueba con restricciones, la Corte controla, y la propia Carta fija prioridades que nadie puede eludir.</p>
+  <div class="table-wrap lead-col">
+    <table>
+      <thead><tr><th>Art.</th><th>Contenido</th><th>Lectura política</th></tr></thead>
+      <tbody>
+        <tr><td>334</td><td>Dirección general de la economía a cargo del Estado. Desde el Acto Legislativo 03 de 2011, la sostenibilidad fiscal orienta a las ramas del poder. Incidente de impacto fiscal. «En cualquier caso el gasto social será prioritario».</td><td>La sostenibilidad es un criterio orientador sin poder para menoscabar derechos fundamentales.</td></tr>
+        <tr><td>338</td><td>Solo los cuerpos de representación popular imponen contribuciones fiscales o parafiscales.</td><td>Legalidad tributaria.</td></tr>
+        <tr><td>339</td><td>Plan Nacional de Desarrollo con parte general y plan de inversiones, que incluye presupuestos plurianuales.</td><td>Ancla del presupuesto en la planeación.</td></tr>
+        <tr><td>345</td><td>En tiempo de paz no se puede percibir contribución que no figure en el presupuesto de rentas, ni hacer erogación que no esté en el de gastos.</td><td>Distingue decretar un gasto (por ley) de incorporarlo al presupuesto: un gasto decretado solo se ejecuta si se incluye en la ley de apropiaciones.</td></tr>
+        <tr><td>346</td><td>El Gobierno formula el presupuesto y lo presenta en los primeros diez días de cada legislatura. Primer debate en comisiones económicas conjuntas.</td><td>La iniciativa es del Ejecutivo.</td></tr>
+        <tr><td>347</td><td>El proyecto de apropiaciones contendrá la totalidad de los gastos. Si las rentas no alcanzan, el Gobierno propondrá nuevas rentas por separado.</td><td>«Desequilibrado pero no desfinanciado».</td></tr>
+        <tr><td>348</td><td>Si el Congreso no expide el presupuesto, rige el del Gobierno; si el Gobierno no lo presenta, rige el del año anterior.</td><td>El Estado nunca queda sin presupuesto.</td></tr>
+        <tr><td>349</td><td>El Congreso expide el presupuesto en los tres primeros meses de la legislatura y estrictamente de acuerdo con la ley orgánica.</td><td>Rango cuasiconstitucional del Estatuto.</td></tr>
+        <tr><td>350</td><td>Gasto público social con prioridad sobre cualquier otra asignación, salvo guerra exterior o seguridad nacional.</td><td>La Carta hace un juicio de valor sobre el gasto.</td></tr>
+        <tr><td>351</td><td>El Congreso no aumenta ni incluye partidas sin aceptación del ministro del ramo; puede reducirlas o eliminarlas con excepciones.</td><td>El Legislativo recorta; el Ejecutivo controla la expansión.</td></tr>
+        <tr><td>359</td><td>Prohíbe las rentas nacionales de destinación específica, con excepciones taxativas.</td><td>Defensa de la unidad de caja.</td></tr>
+        <tr><td>363</td><td>El sistema tributario se funda en equidad, eficiencia y progresividad; las leyes tributarias no son retroactivas.</td><td>Criterios para evaluar cualquier reforma tributaria.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Constitución Política de Colombia, título XII. Restrepo, Hacienda pública. García Garzón, cap. 3.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Constitución económica de 1991" data-t="El gasto público social (art. 350)">
+  <div class="kicker">Constitución económica de 1991</div>
+  <h2>El gasto público social (artículo 350)</h2>
+  <p>Restrepo considera el artículo 350 «quizás la más importante innovación en materias presupuestales de la Constitución de 1991», porque materializa financieramente el Estado social de derecho. Por primera vez la Constitución hace juicios de valor sobre el gasto: considera unos gastos más importantes que otros. Antes, las prioridades quedaban en manos del presupuesto anual, del Plan y del gobierno de turno.</p>
+
+  <dl class="def">
+    <dt>Gasto público social (Decreto 111 de 1996, art. 41)</dt>
+    <dd>«Aquel cuyo objetivo es la solución de las necesidades básicas insatisfechas de salud, educación, saneamiento ambiental, agua potable, vivienda, y las tendientes al bienestar general y al mejoramiento de la calidad de vida de la población, programadas tanto en funcionamiento como en inversión». El salario de un médico en un hospital público, por ejemplo, es gasto público social.</dd>
+  </dl>
+  <h3>Tres reglas del artículo 350</h3>
+  <ol>
+    <li>Prioridad sobre cualquier otra asignación, salvo guerra exterior o seguridad nacional.</li>
+    <li>Su distribución territorial considera necesidades básicas insatisfechas, población y eficiencia fiscal y administrativa.</li>
+    <li>El presupuesto de inversión no puede disminuir porcentualmente frente al año anterior respecto del gasto total.</li>
+  </ol>
+  <blockquote>La constitucionalización del gasto público social es una novedad en nuestra hacienda pública. Se introduce así el concepto de que cumple una función política de naturaleza social y juega un papel redistributivo.<cite>Palacio Rudas, constituyente de 1991, citado por Restrepo</cite></blockquote>
+  <div class="card note">
+    <div class="card-title">La crítica de Restrepo</div>
+    <p>La definición del artículo 41 es tan amplia que «por abarcar mucho termina abarcándolo todo»: si todo gasto orientado al bienestar general es gasto social, ¿cuál gasto no lo es? Una carretera o un puerto también mejoran la calidad de vida.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública, sección XIII. García Garzón, cap. 2.</p>
+</section>
+
+<section class="step" data-s="8" data-b="Constitución económica de 1991" data-t="Equilibrio presupuestal y sostenibilidad fiscal">
+  <div class="kicker">Constitución económica de 1991</div>
+  <h2>Equilibrio presupuestal y sostenibilidad fiscal</h2>
+
+  <dl class="def">
+    <dt>Equilibrio presupuestal</dt>
+    <dd>Principio clásico según el cual los gastos deben igualar los ingresos. Restrepo advierte que ya no tiene validez en el sentido estricto liberal: la financiación con crédito dejó de ser extraordinaria y se volvió permanente. Fue complementado por normas que buscan la estabilidad macroeconómica y financiera del Estado.</dd>
+    <dt>«Desequilibrado pero no desfinanciado»</dt>
+    <dd>Lectura del artículo 347 que hace García Garzón: el presupuesto puede presentarse con apropiaciones mayores que los ingresos estimados, siempre que existan mecanismos que garanticen su financiación.</dd>
+    <dt>Sostenibilidad fiscal (Acto Legislativo 03 de 2011, art. 334)</dt>
+    <dd>Criterio que debe orientar a las ramas y órganos del poder público, dentro de sus competencias, en colaboración armónica. No puede invocarse para menoscabar derechos fundamentales, restringir su alcance o negar su protección efectiva.</dd>
+    <dt>Incidente de impacto fiscal</dt>
+    <dd>Mecanismo por el cual el Procurador General o un ministro puede pedir a las altas cortes que expliquen las consecuencias de un fallo sobre las finanzas públicas y el plan de cumplimiento, y eventualmente que modulen sus efectos. El núcleo esencial de los derechos fundamentales no puede afectarse.</dd>
+  </dl>
+  <div class="card key">
+    <div class="card-title">La tensión de fondo</div>
+    <p>El artículo 334 coloca en la misma frase la sostenibilidad fiscal y la prioridad del gasto social. La Constitución económica no resuelve esa tensión de antemano: la entrega a las ramas del poder para que la administren caso a caso. Esta es la pregunta con la que se abre la siguiente sesión: con qué instrumentos actúa el Estado y con qué límites.</p>
+  </div>
+  <p class="src">Constitución Política, arts. 334 y 347. Restrepo, Hacienda pública. García Garzón, cap. 3.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 9 · BLOQUE E · INSTRUMENTOS
+     ================================================= -->
+
+<section class="step" data-s="9" data-b="Instrumentos de política fiscal" data-t="Qué es la política fiscal">
+  <div class="kicker">Instrumentos de política fiscal</div>
+  <h2>Qué es la política fiscal</h2>
+  <dl class="def">
+    <dt>Política fiscal (Cárdenas)</dt>
+    <dd>«Política» es el arte o traza con que se conduce un asunto; «fiscal» viene de «fisco», tesoro público. La política fiscal son las estrategias que utilizan las autoridades económicas para administrar los recursos del Estado. «Con el avance del conocimiento esto es cada vez más ciencia que arte».</dd>
+    <dt>Política fiscal (Restrepo)</dt>
+    <dd>Parte de la política económica, junto con la monetaria y la de crédito exterior, que se refiere a la planeación, aprobación y ejecución de los recursos financieros públicos, y que tiene al presupuesto como instrumento eje.</dd>
+  </dl>
+  <h3>Sus dos herramientas</h3>
+  <div class="two">
+    <div><h4>Política tributaria</h4><p>Define los tipos de impuestos, sus tarifas y sus bases gravables.</p></div>
+    <div><h4>Política de gasto público</h4><p>Define el monto y la composición de las erogaciones del gobierno.</p></div>
+  </div>
+  <p style="margin-top:14px">Gran parte de la política fiscal es la decisión de incurrir en superávit o en déficit, y de qué hacer con los excedentes o cómo financiar los faltantes: con impuestos o con <strong>deuda</strong>.</p>
+
+  <h3>Expansiva y contractiva</h3>
+  <div class="two">
+    <div>
+      <h4>Política expansiva: G↑ y/o T↓</h4>
+      <p>Al aumentar el gasto público sube directamente la demanda agregada (DA). Al bajar los impuestos sube el ingreso disponible (Yd = Y − T), las personas consumen más y la DA también crece. García Garzón la ubica en fases recesivas.</p>
+    </div>
+    <div>
+      <h4>Política contractiva: G↓ y/o T↑</h4>
+      <p>Menos gasto público reduce la DA; más impuestos reducen el ingreso disponible y el consumo. Actúa en estados inflacionarios donde se necesitan medidas de control fiscal.</p>
+    </div>
+  </div>
+  <p class="src">Cárdenas, cap. 6. García Garzón, cap. 4. Restrepo, Hacienda pública.</p>
+</section>
+
+<section class="step" data-s="9" data-b="Instrumentos de política fiscal" data-t="Política fiscal y ciclo económico">
+  <div class="kicker">Instrumentos de política fiscal</div>
+  <h2>Política fiscal y ciclo económico</h2>
+  <p>La política fiscal también se clasifica según su relación con el <strong>ciclo económico</strong>, es decir, con las fases de auge y desaceleración de la economía.</p>
+  <div class="three">
+    <div><h4>Anticíclica o contracíclica</h4><p>Va en contra del ciclo: en una contracción aumenta G o baja T; en una expansión con visos inflacionarios baja G o sube T. Suaviza las fluctuaciones.</p></div>
+    <div><h4>Procíclica</h4><p>Va en la misma dirección del ciclo: recorta en la recesión y gasta más en el auge. Amplifica las fluctuaciones.</p></div>
+    <div><h4>Acíclica</h4><p>Neutral frente al ciclo: los instrumentos no influyen en su comportamiento.</p></div>
+  </div>
+
+  <h3>Discreción y automatismo</h3>
+  <dl class="def">
+    <dt>Medidas discrecionales</dt>
+    <dd>Uso deliberado de los instrumentos fiscales para afectar la fase del ciclo, modificando ingresos o gastos del presupuesto. Requieren trámite ante los órganos legislativos, lo que puede retardar sus efectos o mermar su efectividad.</dd>
+    <dt>Estabilizadores automáticos</dt>
+    <dd>Componentes de ingresos o gastos que aumentan o disminuyen en función del ciclo sin que medie una decisión de las autoridades. «Cualquier mecanismo del sistema económico que reduce la intensidad de las recesiones y de las expansiones, sin que se produzca ningún cambio deliberado en la política fiscal» (Cuadrado et al., citado por García Garzón).</dd>
+  </dl>
+  <blockquote>En el campo fiscal es deseable contar con la posibilidad de hacer incrementos discrecionales en el gasto, particularmente en sectores intensivos de mano de obra, y preferiblemente en el desarrollo de acciones que, además de contrarrestar el ciclo, remuevan restricciones al crecimiento de largo plazo. Un candidato obvio es el gasto en infraestructura.<cite>Steiner (2009), citado por García Garzón</cite></blockquote>
+  <p class="src">García Garzón, cap. 4. Cárdenas, cap. 6.</p>
+</section>
+
+<section class="step" data-s="9" data-b="Instrumentos de política fiscal" data-t="De la economía clásica a Keynes">
+  <div class="kicker">Instrumentos de política fiscal</div>
+  <h2>De la economía clásica a Keynes</h2>
+  <p>Antes de los años treinta se suponía que la economía se ajustaba sola y que las finanzas públicas tenían un papel administrativo, con presupuesto equilibrado. La Gran Depresión mostró que los instrumentos de ajuste no son automáticos, y con ello que las finanzas públicas podían cumplir un papel importante en la estabilización (Restrepo).</p>
+
+  <h3>La relación de equilibrio Y = C + I</h3>
+  <p>La economía está en equilibrio cuando el ingreso nacional (Y) es igual al consumo (C) más la inversión (I). El consumo es relativamente estable: las familias gastan una proporción bastante fija de su ingreso. La inversión es más volátil, porque depende de las tasas de interés y del clima de los negocios.</p>
+  <div class="two">
+    <div>
+      <h4>Bache deflacionario: Y &gt; C + I</h4>
+      <p>El ahorro no se convierte en inversión porque los inversionistas no encuentran atractivo endeudarse. El Gobierno puede tomar dinero prestado de los particulares y aumentar la inversión pública.</p>
+    </div>
+    <div>
+      <h4>Bache inflacionario: C + I &gt; Y</h4>
+      <p>El gasto supera lo que la economía produce y los precios tienden a subir. Una colocación de bonos o un aumento de impuestos que «succione» recursos y los congele en un superávit tiene efecto antiinflacionario.</p>
+    </div>
+  </div>
+
+  <h3>El aporte keynesiano al gasto público</h3>
+  <p>En recesión los inversionistas prefieren ahorrar y la inversión se paraliza. Hace falta un factor que rompa ese círculo vicioso: el gasto público. La comunidad destina entre el 70% y el 80% de cada unidad adicional de ingreso al consumo; esos consumos se traducen en pedidos a los productores y, si el gasto se sostiene, en reincorporación de desocupados.</p>
+  <div class="card note">
+    <div class="card-title">Colombia ya lo había vivido</div>
+    <p>El gobierno de Olaya Herrera firmó el 12 de diciembre de 1931 un contrato con el Banco de la República que le anticipó 14 millones de pesos. Con esos y otros créditos se fomentó el crédito agrario e industrial y se hicieron obras públicas que dieron trabajo a más de cincuenta mil obreros; según el ministro Esteban Jaramillo, «se detuvo el descenso de los consumos y la baja de los precios». Restrepo resume: el país había pasado «de la ortodoxia de Kemmerer a las políticas keynesianas de gasto público».</p>
+  </div>
+  <div class="card key">
+    <div class="card-title">Hacienda pública y desarrollo (Heller)</div>
+    <ol>
+      <li>Proveer el ahorro para financiar la formación de capital.</li>
+      <li>Contribuir a evitar desequilibrios de origen interno o externo.</li>
+      <li>Crear condiciones de equidad dentro del proceso de desarrollo.</li>
+    </ol>
+    <p>Restrepo añade que en los países en desarrollo la desestabilización suele venir de choques que el análisis keynesiano no contempló, como la caída del precio de un producto básico de exportación.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública, capítulos sobre estabilización y gasto público.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 9 · BLOQUE F · MULTIPLICADOR
+     ================================================= -->
+
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="La cadena de gasto: la idea del multiplicador">
+  <div class="kicker">El multiplicador fiscal · 1 de 5</div>
+  <h2>La cadena de gasto: la idea del multiplicador</h2>
+  <p>Restrepo describe el multiplicador como el factor que hace que «las sumas gastadas se traduzcan en sumas más considerables que las inicialmente gastadas». Antes de cualquier fórmula, veamos por qué pasa eso con una historia.</p>
+
+  <div class="card key">
+    <div class="card-title">Una historia (ejemplo ilustrativo)</div>
+    <p>El Gobierno paga $100 millones a una constructora para arreglar una vía en un municipio de Antioquia. Esa plata no desaparece: se vuelve <strong>ingreso</strong> de los trabajadores y de los proveedores de materiales.</p>
+    <p>Los trabajadores no gastan todo lo que reciben; guardan una parte. Supongamos que de cada peso nuevo gastan 75 centavos. Gastan entonces $75 millones en mercado, arriendo y transporte. Esos $75 millones son ahora ingreso del tendero, del arrendador y del conductor de bus, que a su vez gastan el 75%: $56,25 millones. Y la cadena sigue.</p>
+  </div>
+
+  <h3>Dos conceptos que necesitas</h3>
+  <dl class="def">
+    <dt>Propensión marginal a consumir (PMgC)</dt>
+    <dd>De cada peso <em>adicional</em> que recibes, qué fracción gastas. Si este mes te ganas $100.000 de más y gastas $75.000 de ellos, tu PMgC es 0,75.</dd>
+    <dt>Propensión marginal a ahorrar (PMgA)</dt>
+    <dd>De cada peso adicional, qué fracción guardas. En el mismo ejemplo guardas $25.000: tu PMgA es 0,25. Como cada peso se gasta o se ahorra, las dos siempre suman 1: <strong>PMgC + PMgA = 1</strong>.</dd>
+  </dl>
+
+  <h3>La cadena completa, en millones de pesos</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Vuelta</th><th>Quién recibe</th><th class="num">Ingreso nuevo</th><th class="num">Gasta (75%)</th><th class="num">Ahorra (25%)</th><th class="num">Ingreso acumulado</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Constructora y trabajadores</td><td class="num">100,00</td><td class="num">75,00</td><td class="num">25,00</td><td class="num">100,00</td></tr>
+        <tr><td>2</td><td>Tenderos, arrendadores</td><td class="num">75,00</td><td class="num">56,25</td><td class="num">18,75</td><td class="num">175,00</td></tr>
+        <tr><td>3</td><td>Sus proveedores</td><td class="num">56,25</td><td class="num">42,19</td><td class="num">14,06</td><td class="num">231,25</td></tr>
+        <tr><td>4</td><td>Los proveedores de esos</td><td class="num">42,19</td><td class="num">31,64</td><td class="num">10,55</td><td class="num">273,44</td></tr>
+        <tr><td>5</td><td>…</td><td class="num">31,64</td><td class="num">23,73</td><td class="num">7,91</td><td class="num">305,08</td></tr>
+        <tr><td>…</td><td>…</td><td class="num">cada vez menos</td><td class="num"></td><td class="num"></td><td class="num">…</td></tr>
+        <tr class="total"><td colspan="2">Al final de todas las vueltas</td><td class="num"></td><td class="num"></td><td class="num">100,00</td><td class="num">400,00</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tres cosas que muestra la tabla</h3>
+  <ol>
+    <li>Cada vuelta es más pequeña que la anterior, porque en cada una se ahorra el 25%.</li>
+    <li>Aun así, el ingreso acumulado crece mucho: los $100 millones iniciales terminan generando $400 millones de ingreso en la economía.</li>
+    <li>La cadena se apaga cuando todo el impulso inicial se ha ido a ahorro: al final se habrán ahorrado exactamente los $100 millones que el Gobierno inyectó.</li>
+  </ol>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>Un peso de gasto público se convierte en varios pesos de ingreso porque circula de mano en mano; cada vuelta es más pequeña porque una parte se ahorra.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública. García Garzón, cap. 4.</p>
+</section>
+
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="De la cadena a la fórmula">
+  <div class="kicker">El multiplicador fiscal · 2 de 5</div>
+  <h2>De la cadena a la fórmula</h2>
+  <p>Sumar vuelta por vuelta sería eterno. Hay un atajo, y sale de la tercera observación del paso anterior.</p>
+
+  <div class="card key">
+    <div class="card-title">El atajo, en palabras</div>
+    <p>La cadena termina cuando lo ahorrado en total iguala la inyección inicial de $100 millones. En cada vuelta la gente ahorra el 25% del ingreso que recibe. Entonces el ingreso total generado tiene que ser un número tal que su 25% sea 100:</p>
+    <div class="formula">0,25 × ΔY = 100 &nbsp;⟹&nbsp; ΔY = 100 / 0,25 = 400</div>
+  </div>
+
+  <h3>Generalizando</h3>
+  <p>Si en vez de 100 escribimos ΔG (el cambio en el gasto público) y en vez de 0,25 escribimos PMgA, tenemos ΔY = ΔG / PMgA. Como PMgA = 1 − PMgC:</p>
+  <div class="formula">ΔY = ΔG × 1 / (1 − PMgC)</div>
+  <p>El número que multiplica a ΔG es el <strong>multiplicador del gasto</strong>, que llamamos <strong>k</strong> (García Garzón lo llama MG):</p>
+  <div class="formula">k = 1 / (1 − PMgC) = 1 / PMgA</div>
+
+  <h3>Qué significa cada símbolo</h3>
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th>Símbolo</th><th>Se lee</th><th>Significa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Δ</strong></td><td>delta</td><td>«cambio en». ΔG es cuánto cambió el gasto.</td></tr>
+        <tr><td><strong>ΔG</strong></td><td>delta G</td><td>Gasto público adicional (el impulso inicial).</td></tr>
+        <tr><td><strong>ΔY</strong></td><td>delta Y</td><td>Aumento total del ingreso o producción de la economía.</td></tr>
+        <tr><td><strong>PMgC</strong></td><td></td><td>Fracción de cada peso adicional que se consume.</td></tr>
+        <tr><td><strong>PMgA</strong></td><td></td><td>Fracción que se ahorra: 1 − PMgC.</td></tr>
+        <tr><td><strong>k</strong></td><td>multiplicador</td><td>Cuántos pesos de ingreso genera cada peso de gasto.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Calcúlalo paso a paso</h3>
+  <ol class="phases">
+    <li><b>Encuentra la PMgA</b><span>PMgA = 1 − 0,75 = 0,25</span></li>
+    <li><b>Calcula el multiplicador</b><span>k = 1 / 0,25 = 4</span></li>
+    <li><b>Multiplica el impulso</b><span>ΔY = 100 × 4 = 400 millones</span></li>
+  </ol>
+
+  <h3>Cómo cambia k con la PMgC</h3>
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th class="num">PMgC</th><th class="num">PMgA</th><th class="num">k = 1 / PMgA</th><th>Un gasto de $100 genera</th></tr></thead>
+      <tbody>
+        <tr><td class="num">0,50</td><td class="num">0,50</td><td class="num">2</td><td>$200</td></tr>
+        <tr><td class="num">0,60</td><td class="num">0,40</td><td class="num">2,5</td><td>$250</td></tr>
+        <tr><td class="num">0,75</td><td class="num">0,25</td><td class="num">4</td><td>$400</td></tr>
+        <tr><td class="num">0,80</td><td class="num">0,20</td><td class="num">5</td><td>$500</td></tr>
+        <tr><td class="num">0,90</td><td class="num">0,10</td><td class="num">10</td><td>$1.000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:10px">Mientras más se gasta de cada peso, más vueltas da la plata y mayor es el multiplicador. El ahorro funciona como una <strong>fuga</strong> de la cadena. Restrepo ubica la propensión a consumir entre 70% y 80% del ingreso adicional.</p>
+
+  <div class="card note">
+    <div class="card-title">Ojo: es un modelo simplificado</div>
+    <p>Esta fórmula ignora impuestos, importaciones, tasas de interés y precios. Por eso el número que da es un techo. En los pasos 4 y 5 veremos por qué en la realidad el efecto es mucho menor.</p>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>El multiplicador es 1 dividido por la fracción que se ahorra: si se ahorra poco, la plata circula mucho y el efecto se multiplica más.</p>
+  </div>
+  <p class="src">García Garzón, cap. 4. Restrepo, Hacienda pública.</p>
+</section>
+
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="¿Gastar o bajar impuestos?">
+  <div class="kicker">El multiplicador fiscal · 3 de 5</div>
+  <h2>¿Gastar o bajar impuestos?</h2>
+  <p>Supón que el Gobierno quiere estimular la economía con $15 billones. Puede gastarlos o puede devolverlos a los hogares bajando impuestos. ¿Da lo mismo? García Garzón responde con un ejemplo en el que la PMgC es 0,65. Primero calculamos el multiplicador del gasto:</p>
+  <div class="formula">k = 1 / (1 − 0,65) = 1 / 0,35 ≈ 2,86</div>
+
+  <div class="two">
+    <div>
+      <h4>Opción A: gastar $15 billones</h4>
+      <ol>
+        <li>En la primera vuelta los $15 billones completos se convierten en compras: entran enteros a la demanda.</li>
+        <li>Después la cadena los multiplica: 15 × 2,86.</li>
+        <li><strong>Efecto total: $42,9 billones.</strong></li>
+      </ol>
+    </div>
+    <div>
+      <h4>Opción B: bajar impuestos $15 billones</h4>
+      <ol>
+        <li>Los hogares reciben $15 billones más de ingreso disponible, pero en la primera vuelta solo gastan el 65%: 0,65 × 15 = $9,75 billones. Los otros $5,25 billones se ahorran y nunca entran a la cadena.</li>
+        <li>La cadena multiplica lo que sí se gastó: 9,75 × 2,86.</li>
+        <li><strong>Efecto total: $27,9 billones.</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>El multiplicador de los impuestos</h3>
+  <p>En la opción B hicimos 0,65 × 2,86 = 1,86. Ese es el multiplicador de los impuestos. Se escribe con signo negativo porque los impuestos mueven la economía en sentido contrario: si <em>suben</em>, la demanda <em>baja</em>.</p>
+  <div class="formula">MT = −PMgC / (1 − PMgC) = −0,65 / 0,35 ≈ −1,86</div>
+  <p>Bajar impuestos en 15 es un cambio de −15. Multiplicando: (−15) × (−1,86) = +27,9. Menos por menos da más: bajar impuestos sube la demanda.</p>
+
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th>Medida de $15 billones</th><th class="num">Multiplicador</th><th class="num">Efecto en demanda</th></tr></thead>
+      <tbody>
+        <tr><td>Aumentar el gasto</td><td class="num">2,86</td><td class="num">+42,9</td></tr>
+        <tr><td>Bajar impuestos</td><td class="num">−1,86</td><td class="num">+27,9</td></tr>
+        <tr><td>Subir impuestos</td><td class="num">−1,86</td><td class="num">−27,9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card key">
+    <div class="card-title">Una consecuencia curiosa</div>
+    <p>Si el Gobierno gasta $15 billones y los financia subiendo impuestos en $15 billones, el efecto neto es 42,9 − 27,9 = <strong>+15</strong>. Aun con el presupuesto equilibrado, en este modelo simple la demanda sube, porque el gasto entra completo y los impuestos solo restan lo que los hogares habrían consumido. Gastar con impuestos tiene efectos sobre la economía.</p>
+  </div>
+
+  <h3>A quién le llega la plata</h3>
+  <blockquote>El gasto público que tiene un mayor factor multiplicador es aquel que llega a sectores con alta propensión marginal a consumir, los cuales, al recibir el ingreso, aumentan la demanda agregada de la economía y por tanto incrementan el volumen de la renta.<cite>Restrepo, citado por García Garzón</cite></blockquote>
+  <p>Con la misma lógica de la opción B: si se entregan $1.000 millones a hogares que gastan el 90% de lo que reciben, en la primera vuelta salen a comprar unos $900 millones; si se entregan a hogares que gastan el 50%, salen unos $500 millones (cifras ilustrativas). La pregunta de a quién se dirige el gasto es económica y también política.</p>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>Un peso de gasto entra completo a la economía; un peso de rebaja de impuestos entra solo en la parte que los hogares deciden gastar. Por eso el gasto multiplica más.</p>
+  </div>
+  <p class="src">García Garzón, cap. 4. Restrepo, Hacienda pública.</p>
+</section>
+
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="Por qué el multiplicador real es más pequeño">
+  <div class="kicker">El multiplicador fiscal · 4 de 5</div>
+  <h2>Por qué el multiplicador real es más pequeño</h2>
+  <p>En el modelo simple la única fuga de la cadena era el ahorro. En una economía real hay más fugas y más frenos.</p>
+
+  <h3>Fuga 1: las importaciones</h3>
+  <p>De los $75 que la gente gasta en cada vuelta, una parte compra cosas hechas afuera: un celular, gasolina importada, ropa china. Esa plata se va a productores de otros países y no sigue circulando en Colombia.</p>
+  <div class="card key">
+    <div class="card-title">Paso a paso (ejemplo ilustrativo)</div>
+    <ol>
+      <li>De cada peso adicional se consumen 75 centavos (PMgC = 0,75).</li>
+      <li>De esos 75, supongamos que 15 se van a importaciones. La propensión marginal a importar es PMgM = 0,15.</li>
+      <li>Lo que sigue circulando en el país es 0,75 − 0,15 = 0,60 de cada peso.</li>
+      <li>El multiplicador se calcula con esa cifra: k = 1 / (1 − 0,60) = 1 / 0,40 = <strong>2,5</strong>.</li>
+    </ol>
+    <p>Sin importaciones el multiplicador era 4; con ellas cae a 2,5. La fórmula que verás en los libros dice lo mismo:</p>
+    <div class="formula">k = 1 / (1 − PMgC + PMgM)</div>
+  </div>
+
+  <h3>Fuga 2: los impuestos en cada vuelta</h3>
+  <p>Cada vez que alguien compra algo paga IVA; cada vez que alguien recibe un pago puede haber retención en la fuente. En cada vuelta el Estado se queda con una parte y esa parte no sigue circulando. El multiplicador baja, aunque, como veremos, esa misma fuga funciona como estabilizador automático.</p>
+
+  <h3>Freno 3: el efecto desplazamiento (<em>crowding out</em>)</h3>
+  <p>Si el Gobierno financia el gasto endeudándose, la cadena es:</p>
+  <ol>
+    <li>El Gobierno pide prestado mucho dinero.</li>
+    <li>Compite con empresas y hogares por el ahorro disponible.</li>
+    <li>La tasa de interés sube: el crédito se encarece.</li>
+    <li>Algunas empresas posponen inversiones y algunos hogares no compran a crédito.</li>
+    <li>Parte del estímulo público se compensa con menos gasto privado.</li>
+  </ol>
+
+  <h3>Freno 4: el estado de la economía</h3>
+  <p>Si hay desempleo y fábricas paradas, más demanda se traduce en más producción: el multiplicador es alto. Si la economía está a plena capacidad, nadie puede producir más cemento de un día para otro; la demanda extra sube el precio del cemento. El gasto adicional se vuelve inflación.</p>
+
+  <h3>Freno 5: las expectativas</h3>
+  <p>Si la gente cree que la deuda pública se está volviendo insostenible, puede esperar impuestos futuros más altos y ahorrar más hoy; los inversionistas pueden exigir tasas más altas. El MFMP advierte que en ese caso un aumento del gasto puede llegar a ser contractivo.</p>
+
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>El ahorro, las importaciones y los impuestos sacan plata de la cadena; las tasas de interés, la falta de capacidad y la desconfianza frenan su efecto. Por eso el multiplicador real es mucho menor que el de la fórmula simple.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública. MFMP 2026, recuadro sobre multiplicadores.</p>
+</section>
+
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="Cómo leer las estimaciones para Colombia">
+  <div class="kicker">El multiplicador fiscal · 5 de 5</div>
+  <h2>Cómo leer las estimaciones para Colombia</h2>
+  <p>Los economistas no pueden hacer experimentos con la economía de un país. Lo que hacen es tomar datos históricos (en el MFMP 2026, datos trimestrales de 2005 a 2025) y usar modelos estadísticos para estimar cómo reaccionó el PIB después de cambios en el gasto o los impuestos. No necesitas entender el modelo; sí necesitas saber leer sus resultados.</p>
+
+  <dl class="def">
+    <dt>«Un peso de gasto genera $0,4 de PIB»</dt>
+    <dd>Por cada peso que gasta el Gobierno, la producción del país sube 40 centavos. Como es menos de un peso, el efecto es <strong>atenuado</strong>: otras cosas (las fugas y frenos del paso anterior) compensan parte del impulso.</dd>
+    <dt>Efecto en un trimestre y efecto acumulado</dt>
+    <dd>El primero mide qué pasa en un periodo de tres meses; el segundo suma todo lo que ha pasado desde el impulso hasta cierto momento, por ejemplo un año.</dd>
+    <dt>Estadísticamente significativo</dt>
+    <dd>El modelo puede distinguir el efecto de cero con razonable confianza. Si un resultado «no es significativo», el número existe pero es muy incierto.</dd>
+  </dl>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Instrumento</th><th>Resultado</th><th>Cómo leerlo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gasto primario</strong> (MFMP 2026)</td><td>$0,2 en el primer trimestre; máximo $0,4 en el segundo. Solo significativo el primer trimestre.</td><td>Cada peso gastado sube el PIB menos de un peso, y el efecto dura poco.</td></tr>
+        <tr><td><strong>Inversión pública</strong> (MFMP 2026)</td><td>$0,4 en el primer trimestre; $0,8 acumulado al año; $1,0 a los dos años. Los efectos de mediano plazo no son significativos.</td><td>Efecto más lento y más duradero: puede llegar a devolver el peso completo.</td></tr>
+        <tr><td><strong>Impuestos</strong> (MFMP 2026)</td><td>−$0,7 en el primer trimestre; cerca de −$1,5 acumulado al año.</td><td>Subir impuestos frena la economía, y el efecto se va profundizando.</td></tr>
+        <tr><td><strong>Gasto e impuestos</strong> (Ángel et al., 2020, Banco de la República)</td><td>0,8 para el gasto y −0,1 para los impuestos después de un año. En fases contractivas, el del gasto supera 1.</td><td>En recesión el gasto rinde más, porque hay capacidad ociosa.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>¿Por qué tan lejos del 2,86 o del 4 del libro?</h3>
+  <p>Porque Colombia es una economía abierta que importa buena parte de lo que consume, porque en cada vuelta hay impuestos, porque el endeudamiento presiona las tasas y porque las expectativas cuentan. Todo lo del paso anterior.</p>
+  <div class="card key">
+    <div class="card-title">Conclusión del MFMP</div>
+    <p>La efectividad de la política fiscal en Colombia depende de la composición del gasto y de la fase del ciclo en la que se encuentre el país. La inversión pública aparece como el componente con mayor potencial de efectos persistentes.</p>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>En Colombia un peso de gasto público mueve el PIB menos de un peso en tiempos normales, más en recesión, y la inversión rinde más que el gasto corriente.</p>
+  </div>
+  <p class="src">MFMP 2026, recuadro sobre multiplicadores fiscales.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 9 · BLOQUE G · ESTABILIZADORES Y BALANCE
+     ================================================= -->
+
+<section class="step" data-s="9" data-b="Estabilizadores automáticos y balance fiscal" data-t="Estabilizadores automáticos: la idea">
+  <div class="kicker">Estabilizadores automáticos y balance fiscal</div>
+  <h2>Estabilizadores automáticos: la idea</h2>
+  <p>Piensa en los amortiguadores de un carro. Cuando el carro cae en un hueco, el amortiguador absorbe parte del golpe sin que el conductor haga nada. Los estabilizadores automáticos son los amortiguadores de la economía: suavizan las caídas y los auges sin que nadie tome una decisión.</p>
+
+  <dl class="def">
+    <dt>Estabilizador automático</dt>
+    <dd>Componente de los ingresos o gastos del Estado que aumenta o disminuye con el ciclo económico sin que medie una decisión de las autoridades (García Garzón).</dd>
+  </dl>
+  <div class="card key">
+    <div class="card-title">Por qué «estabilizador» y por qué «automático»</div>
+    <p>«Estabilizador» porque, casi siempre, reducir los ingresos del Estado en una recesión y subirlos en una expansión estabiliza la economía (y al revés con los gastos). «Automático» porque el ciclo económico produce por sí solo este resultado.</p>
+    <p class="src" style="margin-top:6px">Fernández‑Villaverde, citado por Restrepo.</p>
+  </div>
+
+  <h3>Qué pasa en una recesión, paso a paso</h3>
+  <ol class="phases">
+    <li><b>La economía se frena</b><span>Las empresas venden menos, algunas personas pierden el empleo y los ingresos caen.</span></li>
+    <li><b>Los impuestos bajan solos</b><span>Como la gente gana y compra menos, paga menos impuesto de renta y menos IVA. Nadie aprobó una rebaja: simplemente hay menos base sobre la cual cobrar.</span></li>
+    <li><b>Algunos gastos suben solos</b><span>Donde existe seguro de desempleo, hay más beneficiarios y el Estado gasta más sin una ley nueva.</span></li>
+    <li><b>A los hogares les queda más de lo que les quedaría</b><span>Pagan menos impuestos y algunos reciben subsidios; su consumo cae menos de lo que caería sin esos mecanismos.</span></li>
+    <li><b>La recesión es menos profunda</b><span>El precio: el déficit del Estado aumenta durante la recesión.</span></li>
+  </ol>
+  <p>En un auge pasa lo contrario: los impuestos suben solos, los subsidios bajan y se modera el calentamiento.</p>
+
+  <h3>Discrecional y automático, lado a lado</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Medida discrecional</th><th>Estabilizador automático</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Quién decide</strong></td><td>Gobierno y Congreso, deliberadamente.</td><td>Nadie: ya está en las normas.</td></tr>
+        <tr><td><strong>Cuánto tarda</strong></td><td>Puede demorar por el trámite legislativo.</td><td>Opera de inmediato.</td></tr>
+        <tr><td><strong>Carga política</strong></td><td>Alguien tiene que defender la decisión.</td><td>Baja: nadie tiene que decidir el ajuste.</td></tr>
+        <tr><td><strong>Ejemplo</strong></td><td>Crear un fondo de emergencia o un programa de transferencias.</td><td>Menor recaudo de renta en una recesión; seguro de desempleo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>Los estabilizadores automáticos son reglas que ya existen y que, sin que nadie decida nada, le quitan menos plata a la gente cuando la economía va mal y más cuando va bien.</p>
+  </div>
+  <p class="src">García Garzón, cap. 4. Restrepo, Hacienda pública.</p>
+</section>
+
+<section class="step" data-s="9" data-b="Estabilizadores automáticos y balance fiscal" data-t="Estabilizadores con números">
+  <div class="kicker">Estabilizadores automáticos y balance fiscal</div>
+  <h2>Estabilizadores con números: el impuesto progresivo</h2>
+  <p>¿Por qué se dice que un impuesto progresivo estabiliza más que uno plano? Comparemos tres casos con una misma persona.</p>
+
+  <div class="card key">
+    <div class="card-title">Supuestos (ejemplo ilustrativo; las tarifas no son las colombianas)</div>
+    <ul>
+      <li>En el auge la persona gana <strong>$6 millones</strong> al mes; en la recesión, <strong>$4 millones</strong>.</li>
+      <li><strong>Impuesto progresivo:</strong> los primeros $2 millones no pagan; lo que exceda $2 millones paga 20%.</li>
+      <li><strong>Impuesto plano:</strong> 13,3% sobre todo el ingreso, calibrado para recaudar lo mismo que el progresivo en el auge.</li>
+    </ul>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>En millones de pesos</th><th class="num">Sin impuesto</th><th class="num">Impuesto plano</th><th class="num">Impuesto progresivo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Auge:</strong> ingreso</td><td class="num">6,00</td><td class="num">6,00</td><td class="num">6,00</td></tr>
+        <tr class="sub"><td>impuesto</td><td class="num">0</td><td class="num">0,80</td><td class="num">0,20 × 4 = 0,80</td></tr>
+        <tr class="sub"><td>ingreso disponible</td><td class="num">6,00</td><td class="num">5,20</td><td class="num">5,20</td></tr>
+        <tr><td><strong>Recesión:</strong> ingreso</td><td class="num">4,00</td><td class="num">4,00</td><td class="num">4,00</td></tr>
+        <tr class="sub"><td>impuesto</td><td class="num">0</td><td class="num">0,53</td><td class="num">0,20 × 2 = 0,40</td></tr>
+        <tr class="sub"><td>ingreso disponible</td><td class="num">4,00</td><td class="num">3,47</td><td class="num">3,60</td></tr>
+        <tr class="total"><td>Caída del ingreso disponible</td><td class="num">2,00</td><td class="num">1,73</td><td class="num">1,60</td></tr>
+        <tr><td>Caída del recaudo</td><td class="num">0</td><td class="num">0,27 (33%)</td><td class="num">0,40 (50%)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cómo leer la tabla</h3>
+  <ol>
+    <li>En los tres casos el ingreso cae lo mismo: $2 millones.</li>
+    <li>Sin impuesto, el ingreso disponible cae los $2 millones completos.</li>
+    <li>Con impuesto plano, el Estado «absorbe» $0,27 millones de la caída: el disponible cae $1,73.</li>
+    <li>Con impuesto progresivo, el Estado absorbe $0,40 millones: el disponible cae solo $1,60. El recaudo cae más que proporcionalmente (50% frente a una caída del ingreso de 33%), porque la persona pasa a pagar sobre una porción menor de su ingreso.</li>
+    <li>Como al hogar le queda más, consume más y la recesión se profundiza menos.</li>
+  </ol>
+  <p>El <strong>IVA</strong> se comporta como el impuesto plano: su recaudo cae cuando cae el consumo, pero su tarifa es la misma para todos. Por eso es un estabilizador más débil que el impuesto progresivo sobre la renta.</p>
+
+  <div class="card note">
+    <div class="card-title">España, 2007 a 2009</div>
+    <p>El saldo de las administraciones públicas pasó de un superávit de 1,9% del PIB a un déficit de 11,1%. De esos 13 puntos, nueve los causaron los estabilizadores automáticos y cuatro las decisiones discrecionales (Restrepo, citando a Fernández‑Villaverde). En una economía con impuestos progresivos y seguro de desempleo, la mayor parte del déficit de una crisis aparece sola.</p>
+  </div>
+  <div class="card key">
+    <div class="card-title">Colombia</div>
+    <p>El Comité Consultivo de la Regla Fiscal estableció que la totalidad de los gastos del GNC son estructurales, porque «en Colombia no existen gastos que surjan de manera automática cuando la economía se encuentra por debajo de pleno empleo, como ocurre en las economías avanzadas con mecanismos como el seguro de desempleo» (en 2019 se agregó una excepción de 0,5% del PIB por la migración venezolana). Los estabilizadores colombianos operan casi solo por el lado de los ingresos; en una crisis grande, la respuesta tiene que construirse con medidas discrecionales.</p>
+    <p class="src" style="margin-top:6px">Cárdenas, cap. 6, nota 10.</p>
+  </div>
+</section>
+
+<section class="step" data-s="9" data-b="Estabilizadores automáticos y balance fiscal" data-t="Balance total y balance primario">
+  <div class="kicker">Estabilizadores automáticos y balance fiscal</div>
+  <h2>Balance total y balance primario</h2>
+  <p>Los documentos fiscales hablan de varios «balances». Empecemos con un hogar.</p>
+
+  <div class="card key">
+    <div class="card-title">Un hogar (ejemplo ilustrativo, millones de pesos al mes)</div>
+    <div class="table-wrap narrow" style="margin-top:6px">
+      <table>
+        <tbody>
+          <tr><td>Ingresos (salarios)</td><td class="num">5,0</td></tr>
+          <tr><td>Gastos de la casa (mercado, arriendo, servicios)</td><td class="num">4,5</td></tr>
+          <tr><td>Intereses de la tarjeta de crédito y del préstamo</td><td class="num">1,0</td></tr>
+          <tr class="total"><td>Balance total: 5,0 − 4,5 − 1,0</td><td class="num">−0,5</td></tr>
+          <tr class="total"><td>Balance primario: 5,0 − 4,5</td><td class="num">+0,5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:10px">Al hogar le falta medio millón cada mes (balance total negativo) y tendrá que endeudarse más. Pero su balance primario es positivo: con lo que gana cubre de sobra los gastos de la casa. El problema son las deudas que arrastra del pasado.</p>
+  </div>
+
+  <dl class="def">
+    <dt>Balance total u observado</dt>
+    <dd>Todos los ingresos menos todos los gastos, incluidos los intereses. Si es negativo hay <strong>déficit</strong>; si es positivo, <strong>superávit</strong>.</dd>
+    <dt>Balance primario</dt>
+    <dd>Ingresos menos gastos <em>sin contar intereses</em>. Mide si el gobierno de hoy vive con lo que recauda, dejando aparte el costo de la deuda heredada.</dd>
+  </dl>
+
+  <h3>El GNC en 2019, paso a paso</h3>
+  <ol class="phases">
+    <li><b>Ingresos totales</b><span>16,2% del PIB</span></li>
+    <li><b>Gastos totales</b><span>18,6% del PIB, de los cuales 2,9% fueron intereses</span></li>
+    <li><b>Balance total</b><span>−2,5% del PIB (la resta simple da −2,4; la diferencia viene de redondeos y del préstamo neto)</span></li>
+    <li><b>Balance primario</b><span>Le sumamos de vuelta los intereses: −2,5 + 2,9 = <strong>+0,4% del PIB</strong></span></li>
+  </ol>
+  <p>Lectura: en 2019 el GNC cubría sus gastos sin intereses con lo que recaudaba; el déficit venía de pagar los intereses de la deuda acumulada. Es la misma situación del hogar del ejemplo.</p>
+
+  <h3>¿Cómo genera un gobierno superávit primario?</h3>
+  <ul>
+    <li><strong>Subiendo ingresos:</strong> reformas tributarias, menos evasión, menos exenciones.</li>
+    <li><strong>Bajando el gasto sin intereses:</strong> lo cual en Colombia choca con las inflexibilidades vistas en la sesión anterior (más del 90% del presupuesto predeterminado, según Cárdenas).</li>
+  </ul>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>El balance total dice si el Estado tiene que endeudarse este año; el primario dice si, sin contar las deudas viejas, vive con lo que recauda.</p>
+  </div>
+  <p class="src">García Garzón, cap. 6, tabla 28. Cárdenas, cap. 6.</p>
+</section>
+
+<section class="step" data-s="9" data-b="Estabilizadores automáticos y balance fiscal" data-t="Balance estructural y balance cíclico">
+  <div class="kicker">Estabilizadores automáticos y balance fiscal</div>
+  <h2>Balance estructural y balance cíclico</h2>
+  <div class="card key">
+    <div class="card-title">Una analogía</div>
+    <p>Un vendedor que trabaja por comisión gana mucho en diciembre y poco en enero. Si quiere decidir cuánto arriendo puede pagar, le conviene mirar lo que gana en un mes normal, dejando de lado su mejor y su peor mes. Ese ingreso «normal» es la idea del <strong>ingreso estructural</strong>.</p>
+  </div>
+  <p>Con el Estado pasa algo parecido. En una recesión recauda menos y su déficit crece, aunque el gobierno no haya hecho nada imprudente. Para juzgar su manejo hay que separar lo que se debe al momento de la economía de lo que se debe a sus decisiones.</p>
+
+  <dl class="def">
+    <dt>Balance estructural</dt>
+    <dd>El balance que tendría el gobierno si la economía estuviera en su nivel normal o potencial (pleno empleo) y el petróleo en su precio promedio de largo plazo (Ley 1473 de 2011, art. 3; Cárdenas). No se observa directamente: se calcula con una metodología técnica.</dd>
+    <dt>Balance cíclico</dt>
+    <dd>La parte del balance que se explica porque la economía está por encima o por debajo de lo normal, o porque el petróleo está caro o barato. Es temporal.</dd>
+  </dl>
+  <div class="formula">Balance observado = balance cíclico + balance estructural</div>
+
+  <h3>El GNC en 2019 otra vez</h3>
+  <div class="table-wrap narrow">
+    <table>
+      <tbody>
+        <tr><td>Balance observado (total)</td><td class="num">−2,5% del PIB</td></tr>
+        <tr><td>de él, balance cíclico</td><td class="num">−1,0% del PIB</td></tr>
+        <tr><td>de él, balance estructural</td><td class="num">−1,5% del PIB</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:10px">Lectura: de los 2,5 puntos de déficit, 1,0 se debía a que la economía y el petróleo estaban por debajo de lo normal; ese punto desaparecería solo al normalizarse. Los otros 1,5 puntos seguirían ahí aun en tiempos normales: son el déficit que el gobierno debe corregir con decisiones.</p>
+
+  <h3>Por qué la regla fiscal mira el estructural</h3>
+  <div class="two">
+    <div>
+      <h4>Regla sobre el observado</h4>
+      <p>Llega una recesión, el recaudo cae un punto del PIB y el déficit observado sube. Para cumplir, el gobierno tendría que recortar gasto o subir impuestos en plena caída: política <strong>procíclica</strong>. Restrepo usa el caso de Grecia para ilustrar esa espiral.</p>
+    </div>
+    <div>
+      <h4>Regla sobre el estructural</h4>
+      <p>El punto que se perdió por la recesión es cíclico y la regla lo permite. Los estabilizadores automáticos pueden actuar, y el gobierno solo responde por la parte estructural.</p>
+    </div>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>El balance estructural es el déficit «de tiempos normales»; la regla fiscal se fija sobre él para que el Estado no tenga que apretarse el cinturón justo cuando la economía está cayendo.</p>
+  </div>
+  <p class="src">Ley 1473 de 2011, art. 3. García Garzón, cap. 6, tabla 28. Cárdenas, cap. 6. Restrepo, Hacienda pública.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 9 · BLOQUE H · RESTRICCIÓN Y REGLA
+     ================================================= -->
+
+<section class="step" data-s="9" data-b="Restricción intertemporal y regla fiscal" data-t="Restricción intertemporal: el gasto de hoy se paga mañana">
+  <div class="kicker">Restricción intertemporal y regla fiscal</div>
+  <h2>Restricción intertemporal: el gasto de hoy se paga mañana</h2>
+  <p>Si el Gobierno puede endeudarse para estimular la economía, la pregunta inevitable es si hay un límite. La respuesta empieza con algo que cualquiera que haya usado una tarjeta de crédito conoce: lo que compras hoy a crédito lo pagas después, y con intereses.</p>
+
+  <dl class="def">
+    <dt>Restricción presupuestaria intertemporal</dt>
+    <dd>Lo que un gobierno gasta hoy con deuda tendrá que pagarlo mañana con más impuestos o con menos gasto. La deuda traslada el pago en el tiempo, y muchas veces entre generaciones.</dd>
+  </dl>
+
+  <h3>Un ejemplo de dos años (ilustrativo)</h3>
+  <ol class="phases">
+    <li><b>Año 1</b><span>El Gobierno gasta 100 y recauda 80. Le faltan 20, que pide prestados al 10% de interés.</span></li>
+    <li><b>Año 2</b><span>Quiere volver a gastar 100. Además debe devolver los 20 más 2 de intereses: 22. Necesita recaudar 122.</span></li>
+    <li><b>Si no quiere subir impuestos</b><span>Con un recaudo de 100, solo le quedan 78 para gastar después de pagar la deuda. O vuelve a endeudarse y pospone el problema, con más intereses.</span></li>
+  </ol>
+
+  <h3>La idea de valor presente</h3>
+  <p>Con una tasa de 10%, $110 del próximo año equivalen a $100 de hoy, porque si hoy prestas $100 al 10% recibes $110 el próximo año. Para pasar una cifra del futuro a «pesos de hoy» se divide por (1 + r). Así:</p>
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th></th><th class="num">Año 1</th><th class="num">Año 2 en pesos de hoy</th><th class="num">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Gasto</td><td class="num">100</td><td class="num">100 / 1,1 = 90,91</td><td class="num">190,91</td></tr>
+        <tr><td>Impuestos</td><td class="num">80</td><td class="num">122 / 1,1 = 110,91</td><td class="num">190,91</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:10px">Los dos totales son iguales. Eso es la restricción intertemporal escrita con números. En símbolos:</p>
+  <div class="formula">G₁ + G₂ / (1 + r) = T₁ + T₂ / (1 + r)</div>
+  <p>donde G es el gasto, T los impuestos, r la tasa de interés y los subíndices 1 y 2 indican el año. El valor presente de todo lo que se gasta tiene que igualar el valor presente de todo lo que se recauda. Endeudarse cambia <em>cuándo</em> y <em>quién</em> paga; el monto en valor presente se mantiene.</p>
+
+  <blockquote>Son dos las formas principales en que un Estado financia sus gastos: impuestos y deuda. El impuesto es una solución infinitamente preferible, tanto en términos de justicia como de eficiencia. El problema de la deuda es que con mucha frecuencia tiene que reembolsarse, de modo que favorece sobre todo a quienes tienen los medios para prestarle al gobierno.<cite>Piketty, citado por García Garzón</cite></blockquote>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>La deuda es una tarjeta de crédito del Estado: permite gastar antes de recaudar, pero lo gastado más los intereses se pagará con impuestos futuros o con menos gasto futuro.</p>
+  </div>
+</section>
+
+<section class="step" data-s="9" data-b="Restricción intertemporal y regla fiscal" data-t="La aritmética de la deuda, paso a paso">
+  <div class="kicker">Restricción intertemporal y regla fiscal</div>
+  <h2>La aritmética de la deuda, paso a paso</h2>
+
+  <h3>1. La deuda en pesos</h3>
+  <p>La deuda de este año es la deuda del año pasado, más los intereses que generó, más lo que faltó este año sin contar intereses (el déficit primario). Cárdenas lo escribe así:</p>
+  <div class="formula">Dₜ = Dₜ₋₁ × (1 + r) + (Gₜ − Tₜ)</div>
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th>Símbolo</th><th>Significa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dₜ</strong></td><td>Deuda este año (t)</td></tr>
+        <tr><td><strong>Dₜ₋₁</strong></td><td>Deuda el año pasado (t menos 1)</td></tr>
+        <tr><td><strong>r</strong></td><td>Tasa de interés promedio que paga la deuda</td></tr>
+        <tr><td><strong>Gₜ − Tₜ</strong></td><td>Gasto sin intereses menos ingresos: el déficit primario</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2. Por qué se mide como porcentaje del PIB</h3>
+  <p>Deber $10 millones no significa lo mismo para alguien que gana $2 millones al mes que para alguien que gana $20 millones. Con los países pasa igual: lo que importa es la deuda frente al tamaño de la economía. Por eso se habla de deuda como porcentaje del PIB, que escribimos con minúscula: <strong>d</strong>.</p>
+
+  <h3>3. Qué hace subir o bajar la deuda como porcentaje del PIB</h3>
+  <p>Si dividimos por el PIB y llamamos g al crecimiento nominal de la economía (crecimiento real más inflación), sale una regla aproximada muy útil:</p>
+  <div class="formula">cambio en d ≈ (r − g) × d + déficit primario</div>
+  <ul>
+    <li><strong>(r − g) × d</strong> es el «efecto bola de nieve». Los intereses hacen crecer la deuda (el numerador); el crecimiento de la economía hace crecer el PIB (el denominador). Si la tasa de interés supera al crecimiento, la deuda crece sola aunque el gobierno no gaste de más.</li>
+    <li><strong>Déficit primario</strong> (como % del PIB): si es positivo empuja la deuda hacia arriba; si hay superávit primario, la empuja hacia abajo.</li>
+  </ul>
+
+  <h3>4. Tres escenarios</h3>
+  <div class="card key">
+    <div class="card-title">A. Tiempos normales (cifras de Cárdenas para finales de 2019)</div>
+    <p>Deuda d = 50% del PIB; tasa r = 4,5%; crecimiento g = 4%; balance primario en cero.</p>
+    <p>(0,045 − 0,04) × 50 = 0,005 × 50 = <strong>0,25 puntos</strong> al año. La deuda sube un cuarto de punto por año, sola.</p>
+    <p>Para frenarla basta un superávit primario de ese tamaño. Cárdenas calcula 0,2% del PIB y concluye que la deuda colombiana, a finales de 2019, «parece sostenible».</p>
+  </div>
+  <div class="card key">
+    <div class="card-title">B. Una recesión fuerte (ejemplo ilustrativo)</div>
+    <p>Deuda d = 50%; tasa r = 4,5%; la economía <em>cae</em> 5% en términos nominales (g = −5%); déficit primario de 5% del PIB por la caída del recaudo y el gasto de emergencia.</p>
+    <p>Bola de nieve: (0,045 − (−0,05)) × 50 = 0,095 × 50 = 4,75 puntos.<br>Déficit primario: 5 puntos.<br>Total: la deuda pasa de 50% a casi <strong>60% del PIB</strong> en un solo año.</p>
+    <p>Algo parecido ocurrió en 2020, cuando la deuda neta del GNC pasó de 48,4% a 60,7%: el MFMP atribuye la subida principalmente al balance primario y al diferencial r − g.</p>
+  </div>
+  <div class="card key">
+    <div class="card-title">C. Crecimiento nominal alto (ejemplo ilustrativo)</div>
+    <p>Deuda d = 60%; tasa r = 6%; la economía crece 12% nominal (por ejemplo, rebote más inflación); déficit primario de 2%.</p>
+    <p>Bola de nieve: (0,06 − 0,12) × 60 = −0,06 × 60 = −3,6 puntos.<br>Déficit primario: +2 puntos.<br>Total: la deuda <strong>baja 1,6 puntos</strong> aunque hubo déficit.</p>
+    <p>Así se explica buena parte de la corrección entre 2020 y 2025: según el MFMP, el término r − g redujo la deuda neta en 19,1 puntos, mientras los déficits primarios la empujaban al alza en 10,9.</p>
+  </div>
+
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th>Situación</th><th>Qué pasa con la deuda</th></tr></thead>
+      <tbody>
+        <tr><td>r mayor que g</td><td>Crece sola; hace falta superávit primario para estabilizarla.</td></tr>
+        <tr><td>r menor que g</td><td>El crecimiento la «diluye»; puede bajar incluso con algo de déficit.</td></tr>
+        <tr><td>Déficit primario grande</td><td>Sube, sin importar mucho lo demás.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>La deuda como porcentaje del PIB sube con las tasas de interés y los déficits primarios, y baja con el crecimiento y los superávits primarios. Por eso una recesión la dispara y un buen crecimiento la corrige.</p>
+  </div>
+  <p class="src">Cárdenas, cap. 6, apéndice. MFMP 2026, cap. 4.</p>
+</section>
+
+
+<section class="step" data-s="9" data-b="Restricción intertemporal y regla fiscal" data-t="Dos advertencias de Restrepo">
+  <div class="kicker">Restricción intertemporal y regla fiscal</div>
+  <h2>Dos advertencias de Restrepo sobre el gasto keynesiano</h2>
+  <div class="card key">
+    <div class="card-title">1. Cómo se financia</div>
+    <p>Keynes propuso que el Gobierno, mediante operaciones de crédito, adquiriera una porción del ahorro que el sector privado no se decidía a invertir, para que ese ahorro saliera a irrigar la economía. «Keynes no propuso desbocar las fuerzas inflacionarias para financiar el gasto público».</p>
+    <p>En América Latina, en cambio, los déficit se han financiado a menudo «pura y simplemente con las litografías que manejan los bancos centrales», con lo cual el gasto público se volvió «un atizador de inflación». La independencia del Banco de la República en la Constitución de 1991 apunta a cerrar ese canal.</p>
+  </div>
+  <div class="card key">
+    <div class="card-title">2. Cuándo se aplica</div>
+    <p>«Las teorías keynesianas fueron planteadas y propuestas para sacar a la economía de la tremenda recesión de los años treinta. No son por tanto teorías apropiadas para épocas de normalidad». Aplicadas con fanatismo en tiempos normales pueden estimular la inflación, y las medidas de emergencia tienden a volverse gasto permanente.</p>
+  </div>
+  <h3>La dimensión política</h3>
+  <p>Hay un incentivo a gastar en el presente y trasladar el costo al futuro: quienes reciben el gasto votan hoy, y quienes pagarán los impuestos futuros pueden no estar representados todavía. El ciclo político territorial que muestra Cárdenas (déficit en 2015, año electoral; superávit en 2016) es una expresión de ese incentivo. Las reglas fiscales son el intento institucional de contenerlo.</p>
+  <p class="src">Restrepo, Hacienda pública, capítulo sobre gasto público. Cárdenas, cap. 6.</p>
+</section>
+
+<section class="step" data-s="9" data-b="Restricción intertemporal y regla fiscal" data-t="La regla fiscal colombiana">
+  <div class="kicker">Restricción intertemporal y regla fiscal</div>
+  <h2>La regla fiscal colombiana</h2>
+  <dl class="def">
+    <dt>Regla fiscal</dt>
+    <dd>Norma que limita de forma cuantitativa la discrecionalidad de la política fiscal, con el objeto de garantizar la sostenibilidad de largo plazo de las finanzas públicas y contribuir a la estabilidad macroeconómica (Ley 1473 de 2011, art. 1).</dd>
+  </dl>
+
+  <h3>Los antecedentes</h3>
+  <p>La Ley 617 de 2000 limitó el gasto de funcionamiento territorial. La Ley 819 de 2003 creó el Marco Fiscal de Mediano Plazo e introdujo metas de superávit primario, pero sin una regla numérica que resolviera los problemas del ciclo.</p>
+
+  <h3>Dos generaciones de regla</h3>
+  <div class="two">
+    <div>
+      <h4>Ley 1473 de 2011</h4>
+      <ul>
+        <li>Aplica al <strong>GNC</strong>, el nivel con mayor déficit desde los noventa y cuyo resultado depende directamente del gobierno nacional.</li>
+        <li>Sigue de cerca la experiencia de Chile.</li>
+        <li>«El gasto estructural no podrá superar al ingreso estructural» en más de la meta anual. Déficit estructural máximo de 1% del PIB desde 2022, con senda de 2,3% en 2014 y 1,9% en 2018.</li>
+        <li>Crea el Comité Consultivo, técnico e independiente, para diseñar la metodología y verificar el cumplimiento.</li>
+        <li>No trae sanciones automáticas: el Gobierno debe explicar el incumplimiento y fijar metas para corregirlo (art. 13).</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ley 2155 de 2021</h4>
+      <ul>
+        <li>La meta pasa a ser el <strong>Balance Primario Neto Estructural (BPNE)</strong>, calculado con un mecanismo paramétrico según el nivel de deuda.</li>
+        <li><strong>Ancla</strong> de deuda neta del GNC: 55% del PIB, el nivel al que se busca converger.</li>
+        <li><strong>Límite</strong>: 71% del PIB, el nivel que no se debe superar.</li>
+        <li>Crea el Comité Autónomo de la Regla Fiscal (CARF).</li>
+      </ul>
+    </div>
+  </div>
+
+  <dl class="def">
+    <dt>Cláusula de escape</dt>
+    <dd>Permite suspender o desviarse de la regla ante circunstancias excepcionales. Se usó en 2020 y 2021 por la pandemia. El CONFIS la activó de nuevo para 2025, 2026 y 2027, con desvíos autorizados de 2,1, 2,0 y 0,8 puntos del PIB frente a la meta.</dd>
+  </dl>
+  <div class="card key">
+    <div class="card-title">Por qué la regla genera credibilidad</div>
+    <p>Hace predecibles los resultados fiscales, lo que mejora la confianza y reduce los costos de endeudamiento. Cárdenas destaca que ayudó a suavizar el choque petrolero de 2014 a 2016.</p>
+  </div>
+  <p class="src">Ley 1473 de 2011, transcrita por Restrepo. Cárdenas, cap. 6. García Garzón, cap. 6. MFMP 2026.</p>
+</section>
+
+<!-- =================================================
+     SESIÓN 9 · BLOQUE I · CASO COVID
+     ================================================= -->
+
+<section class="step" data-s="9" data-b="Caso aplicado: COVID‑19 y consolidación" data-t="La respuesta fiscal al COVID‑19">
+  <div class="kicker">Caso aplicado</div>
+  <h2>La respuesta fiscal al COVID‑19</h2>
+  <p>La pandemia activó casi todo lo visto en las dos sesiones: poderes extraordinarios del Ejecutivo, fondos por fuera de la estructura presupuestal ordinaria, política expansiva discrecional, suspensión de la regla y un salto en la deuda.</p>
+  <div class="timeline">
+    <div class="tl"><b>Punto de partida, 2019</b>Deuda neta del GNC de 48,4% del PIB, balance primario ligeramente positivo, regla fiscal en cumplimiento.</div>
+    <div class="tl"><b>Marzo de 2020</b>Decreto 417: declaratoria del Estado de Emergencia Económica, Social y Ecológica. El Gobierno expide decretos con fuerza de ley, sujetos a control automático de la Corte Constitucional.</div>
+    <div class="tl"><b>Marzo de 2020</b>Decreto 444: crea el Fondo de Mitigación de Emergencias (FOME), alimentado inicialmente con recursos del Fondo de Ahorro y Estabilización del Sistema General de Regalías y del FONPET.</div>
+    <div class="tl"><b>Mayo de 2020</b>Decreto 637: segunda declaratoria de emergencia.</div>
+    <div class="tl"><b>2020 y 2021</b>Suspensión de la regla fiscal mediante la cláusula de escape de la Ley 1473.</div>
+    <div class="tl"><b>2020</b>La deuda neta del GNC llega a 60,7% del PIB, el máximo del siglo XXI.</div>
+    <div class="tl"><b>2021 y 2022</b>Reformas tributarias (Ley 2155 de 2021 y Ley 2277 de 2022) para fortalecer los ingresos estructurales. La Ley 2155 también rediseña la regla.</div>
+    <div class="tl"><b>2025</b>Deuda neta de 58,6% del PIB. Se activa otra vez la cláusula de escape.</div>
+  </div>
+
+  <h3>Lectura con los conceptos</h3>
+  <ul>
+    <li><strong>Principios presupuestales:</strong> un fondo especial como el FOME tensiona la unidad de caja y la unidad presupuestal, y por eso requirió base legal extraordinaria.</li>
+    <li><strong>Contrapesos:</strong> el centro de la decisión se desplazó al Ejecutivo, con control automático de la Corte sobre los decretos.</li>
+    <li><strong>Política anticíclica y discrecional:</strong> se gastó más cuando la economía cayó, mediante decisiones deliberadas. Con estabilizadores de gasto casi inexistentes, la respuesta tuvo que construirse por decreto.</li>
+    <li><strong>Multiplicador:</strong> la evidencia sugiere multiplicadores mayores en recesión, y las transferencias a hogares vulnerables llegan a quienes tienen alta propensión a consumir.</li>
+    <li><strong>Restricción intertemporal:</strong> más deuda y más intereses, y luego reformas tributarias para recomponer ingresos.</li>
+  </ul>
+  <p class="src">MFMP 2026, cap. 4. Cárdenas, cap. 6. García Garzón.</p>
+</section>
+
+<section class="step" data-s="9" data-b="Caso aplicado: COVID‑19 y consolidación" data-t="Qué movió la deuda y qué viene">
+  <div class="kicker">Caso aplicado</div>
+  <h2>Qué movió la deuda y qué viene</h2>
+  <p>El MFMP 2026 descompone la variación de la deuda neta del GNC con la misma aritmética de Cárdenas: balance primario, diferencial r − g, tipo de cambio e indexación.</p>
+  <div class="two">
+    <div>
+      <h4>2015 a 2020: la subida</h4>
+      <p>Explicada principalmente por los balances primarios negativos y por el diferencial r − g, con presión particularmente fuerte en 2020, cuando el PIB cayó.</p>
+    </div>
+    <div>
+      <h4>2020 a 2025: la corrección</h4>
+      <p>Explicada principalmente por el crecimiento nominal de la economía: r − g redujo la deuda en 19,1 puntos. Los déficits primarios posteriores la presionaron al alza en 10,9 puntos.</p>
+    </div>
+  </div>
+  <p style="margin-top:14px">Según el MFMP, pese a las reformas tributarias de 2021 y 2022, el crecimiento del componente inflexible del gasto y un recaudo menor al previsto limitaron el ajuste. Aquí se cruzan las dos sesiones: las inflexibilidades del Bloque C de la sesión anterior explican parte de la dificultad para cumplir la restricción intertemporal.</p>
+
+  <h3>Proyecciones del MFMP 2026</h3>
+  <ul>
+    <li>Con la cláusula activa, déficits primarios de 2,1% del PIB en 2026 y 0,5% en 2027.</li>
+    <li>Desde 2028, superávits primarios promedio de 1,0% del PIB y gasto en intereses promedio de 4,1% del PIB.</li>
+    <li>Deuda neta con máximo de 59,6% en 2029 y descenso hasta 57,3% en 2037, todavía por encima del ancla de 55%.</li>
+  </ul>
+  <div class="card key">
+    <div class="card-title">Dos escenarios ilustrativos del MFMP</div>
+    <p>Si el balance primario se quedara en su promedio histórico de 2000 a 2025 (déficit de 0,96% del PIB), la deuda neta llegaría a <strong>80,1% del PIB en 2037</strong>. Con un superávit primario sostenido de 1,0% del PIB, bajaría a <strong>55,7%</strong>. La diferencia entre los dos futuros es, en el fondo, una decisión política sobre impuestos y gasto.</p>
+  </div>
+  <p class="src">MFMP 2026, cap. 4, gráficos 4.5 a 4.8.</p>
+</section>
+
+<!-- =================== CIERRE =================== -->
+
+<section class="step" data-s="10" data-b="Cierre" data-t="Mapa de conexiones">
+  <div class="kicker">Cierre</div>
+  <h2>Mapa de conexiones entre las dos sesiones</h2>
+  <div class="card key">
+    <ol>
+      <li><strong>Quién decide.</strong> El presupuesto nace de la disputa entre Parlamento y Ejecutivo. Los principios presupuestales, el ciclo presupuestal y la Constitución de 1991 reparten ese poder: el Gobierno propone, el Congreso aprueba con restricciones, la Corte controla y la Carta fija prioridades.</li>
+      <li style="margin-top:10px"><strong>Sobre qué Estado.</strong> Un sector público con varios perímetros (GNC, SPNF, SPC), descentralizado y con un presupuesto muy rígido.</li>
+      <li style="margin-top:10px"><strong>Con qué instrumentos.</strong> Gasto, impuestos y deuda, usados de forma discrecional o actuando automáticamente con el ciclo. Su efecto depende del multiplicador, de la composición del gasto y del momento del ciclo.</li>
+      <li style="margin-top:10px"><strong>Con qué límites.</strong> La restricción presupuestaria intertemporal y la aritmética de la deuda; la regla fiscal es su forma institucional, con ancla, límite y cláusula de escape.</li>
+      <li style="margin-top:10px"><strong>Todo junto.</strong> La pandemia activó a la vez la arquitectura institucional, la política expansiva y la restricción intertemporal, y sus efectos siguen pesando en el MFMP 2026.</li>
+    </ol>
+  </div>
+  <p class="src" style="margin-top:22px">Fuentes: Restrepo, Hacienda pública. García Garzón, Finanzas públicas en Colombia. Cárdenas, Introducción a la economía colombiana, cap. 6. Ministerio de Hacienda, Marco Fiscal de Mediano Plazo 2026. Constitución Política de Colombia. Decreto 111 de 1996, Decreto 4730 de 2005, Ley 819 de 2003, Ley 1473 de 2011, Ley 2155 de 2021.</p>
+</section>
+
+<section class="step" data-s="10" data-b="Cierre" data-t="Glosario">
+  <div class="kicker">Cierre</div>
+  <h2>Glosario</h2>
+  <p>Definiciones de los términos de las dos sesiones, agrupadas por tema.</p>
+  <dl class="glossary">
+    <h4>Presupuesto y ciclo presupuestal</h4>
+    <dt>Apropiación</dt><dd>Autorización máxima de gasto aprobada por el Congreso para la vigencia.</dd>
+    <dt>Certificado de disponibilidad presupuestal (CDP)</dt><dd>Documento que garantiza que existe apropiación disponible para asumir un compromiso.</dd>
+    <dt>Compromiso</dt><dd>Contrato u acto que afecta una apropiación; se perfecciona con el registro presupuestal.</dd>
+    <dt>Obligación</dt><dd>Recibir el bien o servicio y quedar obligado al pago; requiere PAC.</dd>
+    <dt>PAC</dt><dd>Programa Anual Mensualizado de Caja: monto máximo mensual de fondos disponibles para pagos. Lo aprueba el CONFIS.</dd>
+    <dt>Reserva presupuestal</dt><dd>Compromiso no cumplido al 31 de diciembre que se paga en la vigencia siguiente.</dd>
+    <dt>Cuenta por pagar</dt><dd>Obligación exigible al 31 de diciembre que no se alcanzó a pagar.</dd>
+    <dt>Vigencia futura</dt><dd>Autorización para comprometer recursos de presupuestos de años posteriores en proyectos plurianuales.</dd>
+    <dt>Decreto de liquidación</dt><dd>Decreto que incorpora al proyecto del Gobierno las modificaciones del Congreso.</dd>
+    <dt>Decreto de repetición</dt><dd>Decreto que pone a regir el presupuesto del año anterior cuando el Gobierno no presenta el proyecto a tiempo.</dd>
+    <dt>Sistema presupuestal</dt><dd>Plan financiero, plan operativo anual de inversiones y presupuesto anual.</dd>
+    <dt>MFMP</dt><dd>Marco Fiscal de Mediano Plazo: diagnóstico fiscal a diez años con metas, pasivos contingentes y costo de beneficios tributarios.</dd>
+    <dt>MGMP</dt><dd>Marco de Gasto de Mediano Plazo: techos sectoriales de gasto a cuatro años.</dd>
+    <dt>Política cuasifiscal</dt><dd>Información financiera relevante del Estado que tradicionalmente no aparece en el presupuesto: pasivos pensionales, exenciones, garantías.</dd>
+
+    <h4>Estado y gasto</h4>
+    <dt>GNC</dt><dd>Gobierno Nacional Central: administración central financiada con recursos de la Nación.</dd>
+    <dt>Gobierno General</dt><dd>Administración central, descentralizada y seguridad social; se financia con impuestos, aportes y transferencias.</dd>
+    <dt>SPNF</dt><dd>Sector Público No Financiero: Gobierno General más empresas públicas no financieras.</dd>
+    <dt>SPC</dt><dd>Sector Público Consolidado: SPNF más instituciones financieras públicas y banco central.</dd>
+    <dt>Gasto de funcionamiento</dt><dd>Nómina, gastos generales y transferencias para el funcionamiento normal del Estado.</dd>
+    <dt>Gasto de inversión</dt><dd>Gasto para crear, ampliar o recuperar la capacidad de producción y provisión del Estado.</dd>
+    <dt>Servicio de la deuda</dt><dd>Intereses y amortizaciones.</dd>
+    <dt>Transferencia</dt><dd>Pago unilateral sin contrapartida de bien o servicio.</dd>
+    <dt>Gasto público social</dt><dd>Gasto dirigido a necesidades básicas insatisfechas y al bienestar general, en funcionamiento o inversión; prioritario por el art. 350.</dd>
+    <dt>Renta de destinación específica</dt><dd>Ingreso que la ley ata a un gasto determinado; prohibida por el art. 359 salvo excepciones.</dd>
+    <dt>Inflexibilidad presupuestal</dt><dd>Gasto predeterminado por normas anteriores que la ley anual no puede cambiar.</dd>
+    <dt>SGP</dt><dd>Sistema General de Participaciones: transferencias de la Nación a departamentos y municipios.</dd>
+
+    <h4>Tributos</h4>
+    <dt>Impuesto</dt><dd>Pago obligatorio sin contraprestación específica, según capacidad de pago.</dd>
+    <dt>Tasa</dt><dd>Pago con contrapartida proporcional por un servicio del Estado.</dd>
+    <dt>Contribución especial</dt><dd>Pago por una inversión que beneficia a un grupo identificable, como la valorización.</dd>
+    <dt>Contribución parafiscal</dt><dd>Pago de ciertos usuarios que financia de forma autónoma a un organismo, como las cotizaciones a seguridad social.</dd>
+
+    <h4>Política fiscal</h4>
+    <dt>Política fiscal</dt><dd>Estrategias de las autoridades para administrar los recursos del Estado mediante impuestos y gasto.</dd>
+    <dt>Política expansiva</dt><dd>Aumento del gasto o reducción de impuestos para estimular la demanda agregada.</dd>
+    <dt>Política contractiva</dt><dd>Reducción del gasto o aumento de impuestos para contener la demanda agregada.</dd>
+    <dt>Política anticíclica</dt><dd>Va contra el ciclo: expande en recesión y contrae en auge.</dd>
+    <dt>Política procíclica</dt><dd>Va con el ciclo: recorta en recesión y gasta en auge.</dd>
+    <dt>Medida discrecional</dt><dd>Cambio deliberado de impuestos o gasto, que requiere decisión y trámite.</dd>
+    <dt>Estabilizador automático</dt><dd>Componente de ingresos o gastos que reacciona al ciclo sin decisión de nadie.</dd>
+    <dt>Propensión marginal a consumir</dt><dd>Fracción de cada peso adicional de ingreso que se consume.</dd>
+    <dt>Multiplicador fiscal</dt><dd>Cambio en el PIB por cada peso de cambio en el gasto o los impuestos.</dd>
+    <dt>Efecto desplazamiento</dt><dd>Reducción de la inversión privada cuando el endeudamiento público sube las tasas de interés.</dd>
+    <dt>Bache deflacionario</dt><dd>Situación en que el ingreso supera al consumo más la inversión (Y &gt; C + I).</dd>
+    <dt>Bache inflacionario</dt><dd>Situación en que el consumo más la inversión superan al ingreso (C + I &gt; Y).</dd>
+
+    <h4>Balances, deuda y regla</h4>
+    <dt>Balance total</dt><dd>Ingresos totales menos gastos totales.</dd>
+    <dt>Balance primario</dt><dd>Balance total sin intereses.</dd>
+    <dt>Balance estructural</dt><dd>Balance ajustado por ciclo económico y efectos transitorios del petróleo.</dd>
+    <dt>Balance cíclico</dt><dd>Diferencia entre balance observado y estructural.</dd>
+    <dt>Deuda neta</dt><dd>Deuda bruta menos los activos financieros del gobierno.</dd>
+    <dt>Diferencial r − g</dt><dd>Tasa de interés efectiva menos crecimiento nominal; si es positivo, la deuda crece sola salvo que haya superávit primario.</dd>
+    <dt>Restricción presupuestaria intertemporal</dt><dd>El valor presente del gasto debe igualar el valor presente de los impuestos.</dd>
+    <dt>Regla fiscal</dt><dd>Límite cuantitativo legal a la política fiscal para asegurar sostenibilidad.</dd>
+    <dt>BPNE</dt><dd>Balance Primario Neto Estructural, meta de la regla desde la Ley 2155 de 2021.</dd>
+    <dt>Ancla de deuda</dt><dd>Nivel de deuda neta al que se busca converger: 55% del PIB.</dd>
+    <dt>Límite de deuda</dt><dd>Nivel de deuda neta que no debe superarse: 71% del PIB.</dd>
+    <dt>Cláusula de escape</dt><dd>Mecanismo legal para desviarse temporalmente de la regla ante circunstancias excepcionales.</dd>
+    <dt>Sostenibilidad fiscal</dt><dd>Criterio constitucional (art. 334) que orienta a las ramas del poder sin poder menoscabar derechos fundamentales.</dd>
+    <dt>Incidente de impacto fiscal</dt><dd>Trámite para que las altas cortes consideren los efectos fiscales de sus fallos.</dd>
+  </dl>
+</section>
+
+<nav class="bottom">
+  <div class="bottom-inner">
+    <button class="btn prev" id="prev">← Anterior</button>
+    <button class="count" id="count" title="Volver al índice"></button>
+    <button class="btn next" id="next">Siguiente →</button>
+  </div>
+  <p style="max-width:780px;margin:6px auto 0;text-align:center;font-size:0.72rem;color:var(--muted);">S. Emilio Henao-Bedoya · Universidad de Antioquia, Facultad de Derecho y Ciencias Políticas, Pregrado en Ciencia Política.</p>
+</nav>
+
+<script>
+(function () {
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var titles = {
+    '0': ['', 'Finanzas Públicas'],
+    '8': ['Sesión', 'El Estado colombiano en materia fiscal'],
+    '9': ['Sesión', 'La política fiscal como instrumento'],
+    '10': ['', 'Cierre de las sesiones']
+  };
+  var cur = 0;
+  var sNum = document.getElementById('sNum');
+  var sTitle = document.getElementById('sTitle');
+  var prog = document.getElementById('prog');
+  var count = document.getElementById('count');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+
+  var lastBlock = {};
+  var lists = {};
+  steps.forEach(function (st, i) {
+    var s = st.getAttribute('data-s');
+    if (s === '0') return;
+    var box = document.getElementById('idx' + s);
+    var b = st.getAttribute('data-b');
+    if (lastBlock[s] !== b) {
+      lastBlock[s] = b;
+      if (s !== '10') {
+        var h = document.createElement('div');
+        h.className = 'index-head';
+        h.textContent = b;
+        box.appendChild(h);
+      }
+      lists[s] = document.createElement('ul');
+      lists[s].className = 'index-list';
+      box.appendChild(lists[s]);
+    }
+    var li = document.createElement('li');
+    var btn = document.createElement('button');
+    var n = document.createElement('span'); n.className = 'num'; n.textContent = i;
+    var t = document.createElement('span'); t.textContent = st.getAttribute('data-t');
+    btn.appendChild(n); btn.appendChild(t);
+    btn.addEventListener('click', function () { go(i); });
+    li.appendChild(btn);
+    lists[s].appendChild(li);
+  });
+
+  function go(i) {
+    if (i < 0 || i >= steps.length) return;
+    steps[cur].classList.remove('active');
+    cur = i;
+    var st = steps[cur];
+    st.classList.add('active');
+    var t = titles[st.getAttribute('data-s')];
+    sNum.textContent = t[0];
+    sNum.hidden = !t[0];
+    sTitle.textContent = t[1];
+    prog.style.width = (cur / (steps.length - 1) * 100) + '%';
+    count.textContent = cur === 0 ? 'Índice' : cur + ' / ' + (steps.length - 1);
+    prev.disabled = cur === 0;
+    next.disabled = cur === steps.length - 1;
+    next.textContent = cur === 0 ? 'Empezar →' : 'Siguiente →';
+    window.scrollTo(0, 0);
+    try { localStorage.setItem('fp89_step_v4', String(cur)); } catch (e) {}
+  }
+
+  prev.addEventListener('click', function () { go(cur - 1); });
+  next.addEventListener('click', function () { go(cur + 1); });
+  count.addEventListener('click', function () { go(0); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(cur + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); }
+    if (e.key === 'Home') { go(0); }
+  });
+
+  var tx = 0, ty = 0;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    var dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? cur + 1 : cur - 1);
+  }, { passive: true });
+
+  var start = 0;
+  try { var v = parseInt(localStorage.getItem('fp89_step_v4'), 10); if (v >= 0 && v < steps.length) start = v; } catch (e) {}
+  go(start);
+})();
+</script>
+
+</body></html>
