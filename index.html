@@ -14,6 +14,9 @@
   --muted: #5f6475;
   --note-bg: #fbf5e6;
   --note-line: #d9b45a;
+  --life-bg: #eef6f0;
+  --life-line: #6aa17d;
+  --life-fg: #2f6b43;
   --bar: rgb(47,70,122);
   --bar-fg: #ffffff;
   --bar-muted: rgba(255,255,255,0.72);
@@ -23,7 +26,7 @@
     --bg: #12141d; --fg: #e3e5ec; --accent: #8ea8de;
     --accent-soft: rgba(142,168,222,0.10); --accent-mid: rgba(142,168,222,0.22);
     --card: #1a1d29; --line: #2c3040; --muted: #9ba0b2;
-    --note-bg: #26221a; --note-line: #a8873c;
+    --note-bg: #26221a; --note-line: #a8873c; --life-bg: #16241c; --life-line: #3f7a55; --life-fg: #86cfa0;
     --bar: #1d2440; --bar-fg: #e3e5ec; --bar-muted: rgba(227,229,236,0.7);
     color-scheme: dark;
   }
@@ -32,7 +35,7 @@
   --bg: #12141d; --fg: #e3e5ec; --accent: #8ea8de;
   --accent-soft: rgba(142,168,222,0.10); --accent-mid: rgba(142,168,222,0.22);
   --card: #1a1d29; --line: #2c3040; --muted: #9ba0b2;
-  --note-bg: #26221a; --note-line: #a8873c;
+  --note-bg: #26221a; --note-line: #a8873c; --life-bg: #16241c; --life-line: #3f7a55; --life-fg: #86cfa0;
   --bar: #1d2440; --bar-fg: #e3e5ec; --bar-muted: rgba(227,229,236,0.7);
   color-scheme: dark;
 }
@@ -79,6 +82,8 @@ strong { font-weight: 600; }
 .card.note { background: var(--note-bg); border-color: var(--note-line); }
 .card-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
 .card.note .card-title { color: var(--fg); }
+.card.life { background: var(--life-bg); border-color: var(--life-line); border-left: 4px solid var(--life-line); }
+.card.life .card-title { color: var(--life-fg); }
 .src { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-top: 14px; }
 blockquote { border-left: 3px solid var(--accent-mid); padding: 4px 0 4px 14px; margin-top: 14px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; max-width: 68ch; }
 blockquote cite { display: block; font-style: normal; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
@@ -737,6 +742,11 @@ tr.total td { font-weight: 700; }
     <dd>Componentes de ingresos o gastos que aumentan o disminuyen en función del ciclo sin que medie una decisión de las autoridades. «Cualquier mecanismo del sistema económico que reduce la intensidad de las recesiones y de las expansiones, sin que se produzca ningún cambio deliberado en la política fiscal» (Cuadrado et al., citado por García Garzón).</dd>
   </dl>
   <blockquote>En el campo fiscal es deseable contar con la posibilidad de hacer incrementos discrecionales en el gasto, particularmente en sectores intensivos de mano de obra, y preferiblemente en el desarrollo de acciones que, además de contrarrestar el ciclo, remuevan restricciones al crecimiento de largo plazo. Un candidato obvio es el gasto en infraestructura.<cite>Steiner (2009), citado por García Garzón</cite></blockquote>
+  <div class="card life">
+    <div class="card-title">En la vida real: una familia procíclica y una anticíclica</div>
+    <p>Una familia procíclica, cuando le va bien, compra carro a crédito y amplía la casa; cuando llega una mala racha, tiene que vender el carro barato y recortar todo al mismo tiempo, justo cuando más le duele. Una familia anticíclica guarda en los años buenos para no tener que recortar tanto en los malos.</p>
+    <p>Con los gobiernos pasa lo mismo. Cárdenas muestra un ejemplo colombiano de comportamiento procíclico por razones políticas: los gobiernos territoriales gastan más en los años electorales (déficit de 0,4% del PIB en 2015) y luego ajustan (superávit de 0,3% en 2016).</p>
+  </div>
   <p class="src">García Garzón, cap. 4. Cárdenas, cap. 6.</p>
 </section>
 
@@ -758,6 +768,11 @@ tr.total td { font-weight: 700; }
     </div>
   </div>
 
+  <div class="card life">
+    <div class="card-title">En la vida real</div>
+    <p><strong>Algo parecido a un bache deflacionario:</strong> en la pandemia, con cuarentenas e incertidumbre, muchas familias que conservaron su ingreso gastaron menos y muchas empresas aplazaron inversiones. Había ahorro, pero no se convertía en compras ni en proyectos.</p>
+    <p><strong>Algo parecido a un bache inflacionario:</strong> cuando todos quieren comprar lo mismo al mismo tiempo y no hay cómo producir más rápido, los precios suben, como pasa con los pasajes de bus en temporada.</p>
+  </div>
   <h3>El aporte keynesiano al gasto público</h3>
   <p>En recesión los inversionistas prefieren ahorrar y la inversión se paraliza. Hace falta un factor que rompa ese círculo vicioso: el gasto público. La comunidad destina entre el 70% y el 80% de cada unidad adicional de ingreso al consumo; esos consumos se traducen en pedidos a los productores y, si el gasto se sostiene, en reincorporación de desocupados.</p>
   <div class="card note">
@@ -781,14 +796,14 @@ tr.total td { font-weight: 700; }
      ================================================= -->
 
 <section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="La cadena de gasto: la idea del multiplicador">
-  <div class="kicker">El multiplicador fiscal · 1 de 5</div>
+  <div class="kicker">El multiplicador fiscal · 1 de 8</div>
   <h2>La cadena de gasto: la idea del multiplicador</h2>
   <p>Restrepo describe el multiplicador como el factor que hace que «las sumas gastadas se traduzcan en sumas más considerables que las inicialmente gastadas». Antes de cualquier fórmula, veamos por qué pasa eso con una historia.</p>
 
   <div class="card key">
     <div class="card-title">Una historia (ejemplo ilustrativo)</div>
-    <p>El Gobierno paga $100 millones a una constructora para arreglar una vía en un municipio de Antioquia. Esa plata no desaparece: se vuelve <strong>ingreso</strong> de los trabajadores y de los proveedores de materiales.</p>
-    <p>Los trabajadores no gastan todo lo que reciben; guardan una parte. Supongamos que de cada peso nuevo gastan 75 centavos. Gastan entonces $75 millones en mercado, arriendo y transporte. Esos $75 millones son ahora ingreso del tendero, del arrendador y del conductor de bus, que a su vez gastan el 75%: $56,25 millones. Y la cadena sigue.</p>
+    <p>El Gobierno paga $100 millones a una constructora para arreglar una vía en un municipio de Antioquia. Esa plata sigue viva: se convierte en <strong>ingreso</strong> de los trabajadores y de los proveedores de materiales.</p>
+    <p>Los trabajadores gastan una parte de lo que reciben y guardan otra. Supongamos que de cada peso nuevo gastan 75 centavos. Gastan entonces $75 millones en mercado, arriendo y transporte. Esos $75 millones son ahora ingreso del tendero, del arrendador y del conductor de bus, que a su vez gastan el 75%: $56,25 millones. Y la cadena sigue.</p>
   </div>
 
   <h3>Dos conceptos que necesitas</h3>
@@ -821,6 +836,12 @@ tr.total td { font-weight: 700; }
     <li>Aun así, el ingreso acumulado crece mucho: los $100 millones iniciales terminan generando $400 millones de ingreso en la economía.</li>
     <li>La cadena se apaga cuando todo el impulso inicial se ha ido a ahorro: al final se habrán ahorrado exactamente los $100 millones que el Gobierno inyectó.</li>
   </ol>
+
+  <div class="card life">
+    <div class="card-title">En la vida real: una obra llega al pueblo</div>
+    <p>Si alguna vez viste llegar una obra grande a un municipio, ya viste el multiplicador. Los obreros almuerzan en los restaurantes de la plaza; el restaurante compra más papa, plátano y pollo; la ferretería vende más; la señora de la tienda fía menos y cobra más; algún negocio contrata a alguien para atender. Y cuando la obra se acaba, todos esos negocios lo notan al mismo tiempo.</p>
+    <p>Colombia lo vivió a escala nacional: en la crisis de los años treinta, el gobierno de Olaya Herrera financió obras públicas que dieron trabajo a más de cincuenta mil obreros y, según el ministro Esteban Jaramillo, «se detuvo el descenso de los consumos y la baja de los precios» (citado por Restrepo).</p>
+  </div>
   <div class="card note">
     <div class="card-title">En una frase</div>
     <p>Un peso de gasto público se convierte en varios pesos de ingreso porque circula de mano en mano; cada vuelta es más pequeña porque una parte se ahorra.</p>
@@ -829,7 +850,7 @@ tr.total td { font-weight: 700; }
 </section>
 
 <section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="De la cadena a la fórmula">
-  <div class="kicker">El multiplicador fiscal · 2 de 5</div>
+  <div class="kicker">El multiplicador fiscal · 2 de 8</div>
   <h2>De la cadena a la fórmula</h2>
   <p>Sumar vuelta por vuelta sería eterno. Hay un atajo, y sale de la tercera observación del paso anterior.</p>
 
@@ -882,9 +903,18 @@ tr.total td { font-weight: 700; }
   </div>
   <p style="margin-top:10px">Mientras más se gasta de cada peso, más vueltas da la plata y mayor es el multiplicador. El ahorro funciona como una <strong>fuga</strong> de la cadena. Restrepo ubica la propensión a consumir entre 70% y 80% del ingreso adicional.</p>
 
+  <div class="card life">
+    <div class="card-title">En la vida real: ¿quién tiene una PMgC alta?</div>
+    <p>Piensa en dos hogares que reciben $100.000 de más este mes (ejemplo ilustrativo).</p>
+    <ul>
+      <li>Una familia que vive al día casi no los guarda: se van en mercado, en el pasaje, en pagarle a la tienda lo que se debía de fiado, en los útiles del colegio. Su PMgC puede estar cerca de 0,9.</li>
+      <li>Una familia de ingresos altos probablemente no cambia lo que compra por $100.000 más: la plata se queda en la cuenta o va a un CDT. Su PMgC frente a ese ingreso extra es mucho más baja.</li>
+    </ul>
+    <p>El mismo peso público multiplica distinto según a quién llegue. Y la plata que se queda quieta en una cuenta o debajo del colchón deja de circular: es la fuga del modelo.</p>
+  </div>
   <div class="card note">
     <div class="card-title">Ojo: es un modelo simplificado</div>
-    <p>Esta fórmula ignora impuestos, importaciones, tasas de interés y precios. Por eso el número que da es un techo. En los pasos 4 y 5 veremos por qué en la realidad el efecto es mucho menor.</p>
+    <p>Esta fórmula ignora impuestos, importaciones, tasas de interés y precios. Por eso el número que da es un techo. Más adelante veremos por qué en la realidad el efecto es mucho menor.</p>
   </div>
   <div class="card note">
     <div class="card-title">En una frase</div>
@@ -893,8 +923,38 @@ tr.total td { font-weight: 700; }
   <p class="src">García Garzón, cap. 4. Restrepo, Hacienda pública.</p>
 </section>
 
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="El multiplicador también funciona al revés">
+  <div class="kicker">El multiplicador fiscal · 3 de 8</div>
+  <h2>El multiplicador también funciona al revés</h2>
+  <p>La cadena de gasto no tiene dirección fija. Si alguien deja de gastar, el ingreso de otro cae; ese otro también recorta, y la caída se propaga vuelta por vuelta. Es la misma lógica de los dos pasos anteriores, con signo negativo.</p>
+
+  <div class="card life">
+    <div class="card-title">En la vida real: las cuarentenas de 2020</div>
+    <p>Cuando cerraron los restaurantes, la primera pérdida fue la del dueño. Pero los meseros y cocineros dejaron de recibir sueldo y pagaron menos arriendo y menos mercado; el arrendador y el tendero recibieron menos; el proveedor de verduras del restaurante dejó de venderle y tuvo que recortar también. Un cierre en un sector se convirtió en menos ingreso para muchos otros que nunca cerraron.</p>
+  </div>
+  <div class="card life">
+    <div class="card-title">En la vida real: cierra la empresa grande del pueblo (ejemplo ilustrativo)</div>
+    <p>Si en un municipio cierra la planta que empleaba a quinientas personas, la pérdida va mucho más allá de esos quinientos empleos: caen las ventas del comercio, de los restaurantes, del transporte, de los arriendos. Por eso los alcaldes temen tanto el cierre de un gran empleador: saben, aunque no lo llamen así, que el multiplicador también resta.</p>
+  </div>
+
+  <h3>Con números (ejemplo ilustrativo)</h3>
+  <p>Si con una PMgC de 0,75 el Gobierno <em>recorta</em> $100 millones de gasto, el ingreso total cae 100 × 4 = <strong>$400 millones</strong>. La misma tabla del primer paso, con todos los números en negativo.</p>
+
+  <h3>Por qué importa para la política fiscal</h3>
+  <ul>
+    <li><strong>Recortar en plena recesión amplifica la caída.</strong> Restrepo advierte que exigir déficit cero año a año obligaría a subir impuestos o reducir gasto en medio de una recesión, generando caídas adicionales de ingreso «en una espiral negativa como la que se observa en Grecia». Eso es una política procíclica.</li>
+    <li><strong>Subir impuestos también resta.</strong> Según el MFMP 2026, un peso más de impuestos reduce el PIB en unos $0,7 en el primer trimestre y alrededor de $1,5 al cabo de un año.</li>
+    <li><strong>Esta es la idea de Keynes.</strong> En el bache deflacionario la gente y las empresas dejan de gastar y la cadena va hacia abajo. El gasto público entra para frenar esa cadena y darle la vuelta.</li>
+  </ul>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>Así como un peso de gasto se multiplica hacia arriba, un peso que se deja de gastar se multiplica hacia abajo; por eso los recortes en una recesión pueden empeorarla.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública. MFMP 2026, recuadro sobre multiplicadores.</p>
+</section>
+
 <section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="¿Gastar o bajar impuestos?">
-  <div class="kicker">El multiplicador fiscal · 3 de 5</div>
+  <div class="kicker">El multiplicador fiscal · 4 de 8</div>
   <h2>¿Gastar o bajar impuestos?</h2>
   <p>Supón que el Gobierno quiere estimular la economía con $15 billones. Puede gastarlos o puede devolverlos a los hogares bajando impuestos. ¿Da lo mismo? García Garzón responde con un ejemplo en el que la PMgC es 0,65. Primero calculamos el multiplicador del gasto:</p>
   <div class="formula">k = 1 / (1 − 0,65) = 1 / 0,35 ≈ 2,86</div>
@@ -916,6 +976,12 @@ tr.total td { font-weight: 700; }
         <li><strong>Efecto total: $27,9 billones.</strong></li>
       </ol>
     </div>
+  </div>
+
+  <div class="card life">
+    <div class="card-title">En la vida real: dos formas de repartir la plata</div>
+    <p>La opción A se parece a contratar una obra o a pagar más enfermeras: alguien recibe un sueldo por un trabajo y la plata entra a la economía desde el primer día.</p>
+    <p>La opción B se parece a una rebaja en el impuesto de renta. Quien la recibe puede usarla para mercar, pero también para abonarle a la tarjeta, ahorrar o pagar un viaje al exterior. Solo la parte que se gasta en el país arranca la cadena.</p>
   </div>
 
   <h3>El multiplicador de los impuestos</h3>
@@ -940,7 +1006,7 @@ tr.total td { font-weight: 700; }
 
   <h3>A quién le llega la plata</h3>
   <blockquote>El gasto público que tiene un mayor factor multiplicador es aquel que llega a sectores con alta propensión marginal a consumir, los cuales, al recibir el ingreso, aumentan la demanda agregada de la economía y por tanto incrementan el volumen de la renta.<cite>Restrepo, citado por García Garzón</cite></blockquote>
-  <p>Con la misma lógica de la opción B: si se entregan $1.000 millones a hogares que gastan el 90% de lo que reciben, en la primera vuelta salen a comprar unos $900 millones; si se entregan a hogares que gastan el 50%, salen unos $500 millones (cifras ilustrativas). La pregunta de a quién se dirige el gasto es económica y también política.</p>
+  <p>Con la misma lógica de la opción B: si se entregan $1.000 millones a hogares que gastan el 90% de lo que reciben, en la primera vuelta salen a comprar unos $900 millones; si se entregan a hogares que gastan el 50%, salen unos $500 millones (cifras ilustrativas). En 2020, una de las respuestas a la pandemia fueron transferencias directas a hogares vulnerables, como Ingreso Solidario: hogares que gastan casi todo lo que reciben. La pregunta de a quién se dirige el gasto es económica y también política.</p>
   <div class="card note">
     <div class="card-title">En una frase</div>
     <p>Un peso de gasto entra completo a la economía; un peso de rebaja de impuestos entra solo en la parte que los hogares deciden gastar. Por eso el gasto multiplica más.</p>
@@ -949,12 +1015,15 @@ tr.total td { font-weight: 700; }
 </section>
 
 <section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="Por qué el multiplicador real es más pequeño">
-  <div class="kicker">El multiplicador fiscal · 4 de 5</div>
+  <div class="kicker">El multiplicador fiscal · 5 de 8</div>
   <h2>Por qué el multiplicador real es más pequeño</h2>
   <p>En el modelo simple la única fuga de la cadena era el ahorro. En una economía real hay más fugas y más frenos.</p>
 
   <h3>Fuga 1: las importaciones</h3>
-  <p>De los $75 que la gente gasta en cada vuelta, una parte compra cosas hechas afuera: un celular, gasolina importada, ropa china. Esa plata se va a productores de otros países y no sigue circulando en Colombia.</p>
+  <div class="card life">
+    <div class="card-title">En la vida real</div>
+    <p>Con un subsidio de $500.000, una persona puede almorzar toda la semana en el restaurante del barrio: la plata le llega a la cocinera, al que vende las verduras, al dueño del local, y sigue dando vueltas cerca. O puede comprar un celular importado: buena parte de esa plata termina en el fabricante de otro país y sale de la cadena colombiana.</p>
+  </div>
   <div class="card key">
     <div class="card-title">Paso a paso (ejemplo ilustrativo)</div>
     <ol>
@@ -968,43 +1037,156 @@ tr.total td { font-weight: 700; }
   </div>
 
   <h3>Fuga 2: los impuestos en cada vuelta</h3>
-  <p>Cada vez que alguien compra algo paga IVA; cada vez que alguien recibe un pago puede haber retención en la fuente. En cada vuelta el Estado se queda con una parte y esa parte no sigue circulando. El multiplicador baja, aunque, como veremos, esa misma fuga funciona como estabilizador automático.</p>
+  <p>Cada vez que compras ropa o un electrodoméstico pagas IVA, cuya tarifa general es 19%: de cada $119 que pagas, $19 van al Estado y no siguen la cadena privada. Cada vez que alguien recibe un pago puede haber retención en la fuente. El multiplicador baja, aunque, como veremos, esa misma fuga funciona como estabilizador automático.</p>
 
-  <h3>Freno 3: el efecto desplazamiento (<em>crowding out</em>)</h3>
-  <p>Si el Gobierno financia el gasto endeudándose, la cadena es:</p>
-  <ol>
-    <li>El Gobierno pide prestado mucho dinero.</li>
-    <li>Compite con empresas y hogares por el ahorro disponible.</li>
-    <li>La tasa de interés sube: el crédito se encarece.</li>
-    <li>Algunas empresas posponen inversiones y algunos hogares no compran a crédito.</li>
-    <li>Parte del estímulo público se compensa con menos gasto privado.</li>
-  </ol>
+  <h3>Freno 3: la capacidad de la economía</h3>
+  <div class="card life">
+    <div class="card-title">En la vida real: temporada alta (ejemplo ilustrativo)</div>
+    <p>En diciembre los hoteles de la costa están llenos. Si llega todavía más gente con plata para viajar, no aparecen habitaciones nuevas de un día para otro: lo que sube es el precio. Con la economía pasa igual. Si hay desempleo y fábricas paradas, más demanda se traduce en más producción y el multiplicador es alto. Si la economía está a plena capacidad, el gasto adicional se vuelve sobre todo inflación.</p>
+  </div>
 
-  <h3>Freno 4: el estado de la economía</h3>
-  <p>Si hay desempleo y fábricas paradas, más demanda se traduce en más producción: el multiplicador es alto. Si la economía está a plena capacidad, nadie puede producir más cemento de un día para otro; la demanda extra sube el precio del cemento. El gasto adicional se vuelve inflación.</p>
+  <h3>Freno 4: las expectativas</h3>
+  <p>Si una familia escucha que viene una reforma tributaria fuerte porque la deuda pública está desbordada, puede aplazar la compra del carro y ahorrar. Si muchos hacen lo mismo, y los inversionistas exigen tasas más altas para prestarle al Estado, el estímulo pierde fuerza. El MFMP advierte que en ese caso un aumento del gasto puede llegar a ser contractivo.</p>
 
-  <h3>Freno 5: las expectativas</h3>
-  <p>Si la gente cree que la deuda pública se está volviendo insostenible, puede esperar impuestos futuros más altos y ahorrar más hoy; los inversionistas pueden exigir tasas más altas. El MFMP advierte que en ese caso un aumento del gasto puede llegar a ser contractivo.</p>
+  <h3>Freno 5: el efecto desplazamiento</h3>
+  <p>Cuando el Gobierno financia el gasto con deuda puede encarecer el crédito para todos los demás y desplazar gasto privado. Es el freno más difícil de entender, así que le dedicamos los dos pasos siguientes.</p>
 
   <div class="card note">
     <div class="card-title">En una frase</div>
-    <p>El ahorro, las importaciones y los impuestos sacan plata de la cadena; las tasas de interés, la falta de capacidad y la desconfianza frenan su efecto. Por eso el multiplicador real es mucho menor que el de la fórmula simple.</p>
+    <p>El ahorro, las importaciones y los impuestos sacan plata de la cadena; la falta de capacidad, la desconfianza y el encarecimiento del crédito frenan su efecto. Por eso el multiplicador real es mucho menor que el de la fórmula simple.</p>
   </div>
   <p class="src">Restrepo, Hacienda pública. MFMP 2026, recuadro sobre multiplicadores.</p>
 </section>
 
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="El efecto desplazamiento: la idea">
+  <div class="kicker">El multiplicador fiscal · 6 de 8</div>
+  <h2>El efecto desplazamiento: la idea</h2>
+  <dl class="def">
+    <dt>Efecto desplazamiento (<em>crowding out</em>)</dt>
+    <dd>Cuando el Gobierno financia su gasto endeudándose, compite con empresas y hogares por el ahorro disponible. Eso puede subir las tasas de interés y hacer que el sector privado gaste o invierta menos. El gasto público «desplaza» una parte del gasto privado, y el efecto neto sobre la economía es menor que el que prometía el multiplicador.</dd>
+  </dl>
+
+  <div class="card life">
+    <div class="card-title">Un pueblo con un solo banco (ejemplo ilustrativo)</div>
+    <p>En un pueblo hay un banco que este año tiene <strong>$1.000 millones</strong> para prestar, que son los ahorros de la gente del pueblo. Normalmente se los piden la panadería que quiere un horno nuevo, la ferretería que quiere ampliar el local, una familia que quiere comprar moto. Con esa demanda, el banco presta al <strong>12%</strong> anual.</p>
+    <p>Este año llega la alcaldía y pide <strong>$600 millones</strong> prestados para una obra. Quedan $400 millones para todos los demás. Como hay muchas solicitudes y poca plata, el banco sube la tasa al <strong>16%</strong>.</p>
+  </div>
+
+  <h3>La decisión de la panadería</h3>
+  <p>La panadería quiere un crédito de $50 millones para comprar un horno que le dejaría $7 millones de ganancia adicional al año. Miremos solo los intereses del primer año:</p>
+  <div class="table-wrap narrow">
+    <table>
+      <thead><tr><th></th><th class="num">Tasa 12%</th><th class="num">Tasa 16%</th></tr></thead>
+      <tbody>
+        <tr><td>Intereses del primer año sobre $50 millones</td><td class="num">$6 millones</td><td class="num">$8 millones</td></tr>
+        <tr><td>Ganancia adicional del horno</td><td class="num">$7 millones</td><td class="num">$7 millones</td></tr>
+        <tr class="total"><td>¿Conviene invertir?</td><td class="num">Sí: gana 1</td><td class="num">No: pierde 1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:10px">Con la tasa al 16% la panadería aplaza el horno. Con eso también pierden el fabricante del horno, el técnico que lo iba a instalar y el ayudante que se iba a contratar para hornear más. La obra pública generó empleo, y al mismo tiempo una inversión privada dejó de hacerse.</p>
+
+  <h3>La cadena, paso a paso</h3>
+  <ol class="phases">
+    <li><b>El Gobierno gasta más de lo que recauda</b><span>Tiene que pedir prestada la diferencia.</span></li>
+    <li><b>Compite por el ahorro disponible</b><span>Los ahorros de la sociedad que se pueden prestar son limitados; si el Estado toma una parte grande, queda menos para los demás.</span></li>
+    <li><b>Sube la tasa de interés</b><span>Cuando hay más gente pidiendo prestado que plata para prestar, el crédito se encarece.</span></li>
+    <li><b>Se aplazan proyectos privados</b><span>Inversiones que eran rentables al 12% dejan de serlo al 16%. También se aplazan compras de hogares a crédito: vivienda, carro, moto.</span></li>
+    <li><b>Se compensa parte del estímulo</b><span>El gasto privado que no se hizo resta al efecto del gasto público.</span></li>
+  </ol>
+
+  <h3>¿Cuánto se pierde? (ejemplo ilustrativo)</h3>
+  <ul>
+    <li>El Gobierno gasta 100 con deuda. Con un multiplicador de 2,5, la economía debería crecer 250.</li>
+    <li>Pero las tasas suben y la inversión privada cae en 40. Esos 40 también tenían su propia cadena: 40 × 2,5 = 100 que se dejan de generar.</li>
+    <li>Efecto neto: 250 − 100 = <strong>150</strong>. El multiplicador efectivo bajó de 2,5 a 1,5. Es un <strong>desplazamiento parcial</strong>.</li>
+    <li>Si la inversión privada cayera en 100, el efecto neto sería cero: <strong>desplazamiento total</strong>. El Estado habría reemplazado gasto privado por gasto público sin que la economía creciera.</li>
+  </ul>
+
+  <div class="card life">
+    <div class="card-title">Tú también lo has visto</div>
+    <p>Cuando las tasas de interés suben, la cuota del crédito de vivienda, del carro o de la moto se encarece, y muchas familias aplazan la compra. Eso pasó en Colombia cuando el Banco de la República subió sus tasas para frenar la inflación después de la pandemia. Ahí la causa fue la política monetaria; el mecanismo que frena el gasto privado, en cambio, es el mismo: crédito más caro, menos compras e inversiones.</p>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>Si el Estado se endeuda mucho, compite por la plata que se presta, el crédito se encarece y algunos proyectos privados se quedan sin hacer; parte del estímulo público se cancela con menos gasto privado.</p>
+  </div>
+</section>
+
+<section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="El efecto desplazamiento: cuándo pesa más">
+  <div class="kicker">El multiplicador fiscal · 7 de 8</div>
+  <h2>El efecto desplazamiento: cómo funciona en Colombia y cuándo pesa más</h2>
+
+  <h3>Cómo se endeuda el Estado colombiano</h3>
+  <p>El Gobierno Nacional se financia en buena parte emitiendo <strong>TES</strong>, títulos de deuda pública. Quien compra un TES le presta al Gobierno y recibe intereses. Los compran bancos, fondos de pensiones (donde están los ahorros pensionales de los trabajadores) e inversionistas extranjeros.</p>
+  <ul>
+    <li>Si el Gobierno necesita colocar muchos TES, tiene que ofrecer intereses atractivos para que se los compren.</li>
+    <li>Para un banco, prestarle a la Nación es muy seguro. Si los TES pagan bien, puede preferir comprarlos antes que prestarle a una pequeña empresa, que es más riesgosa.</li>
+    <li>El resultado puede ser crédito privado más caro o más escaso: el pueblo del paso anterior, a escala nacional.</li>
+  </ul>
+  <div class="card key">
+    <div class="card-title">Un dato real</div>
+    <p>Según el MFMP 2026, el cupón promedio ponderado de la deuda vigente del Gobierno pasó de <strong>8,4%</strong> en enero de 2025 a <strong>9,8%</strong> en abril de 2026. Es decir, financiar al Estado se ha vuelto más caro. Ese costo presiona la deuda (es la r del diferencial r − g que veremos más adelante) y es parte del ambiente de tasas que enfrenta el resto de la economía.</p>
+  </div>
+
+  <h3>Otro canal: los recursos reales</h3>
+  <div class="card life">
+    <div class="card-title">En la vida real (ejemplo ilustrativo)</div>
+    <p>Si el Estado lanza al mismo tiempo muchas obras en una región, compite con los constructores privados por ingenieros, operarios, maquinaria y cemento. Esos costos suben para todos, y algún proyecto de vivienda privada se vuelve demasiado caro y se aplaza. Aquí el desplazamiento ocurre por los insumos, aunque las tasas de interés no se muevan.</p>
+  </div>
+
+  <h3>¿Cuándo desplaza mucho y cuándo desplaza poco?</h3>
+  <div class="two">
+    <div>
+      <h4>Desplaza mucho</h4>
+      <ul>
+        <li>La economía está cerca de su plena capacidad.</li>
+        <li>Las empresas tienen proyectos y quieren crédito.</li>
+        <li>El ahorro disponible es escaso.</li>
+        <li>La deuda pública ya es alta y los prestamistas desconfían.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Desplaza poco</h4>
+      <ul>
+        <li>La economía está en recesión, con desempleo y capacidad ociosa.</li>
+        <li>Las empresas no quieren invertir porque no venden.</li>
+        <li>Hay ahorro quieto que nadie pide prestado.</li>
+        <li>El Estado tiene credibilidad fiscal.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card life">
+    <div class="card-title">El mismo pueblo, en recesión (ejemplo ilustrativo)</div>
+    <p>Ahora las ventas están mal. El banco tiene sus $1.000 millones y casi nadie pide crédito: la panadería no piensa comprar horno porque no vende ni lo que hornea hoy. Si la alcaldía pide $600 millones, la tasa casi no se mueve y nadie pierde un crédito que pensaba pedir. El gasto público usa una plata que estaba quieta.</p>
+  </div>
+  <blockquote>Propuso que el Gobierno, mediante operaciones de crédito, adquiriera una porción del ahorro que el sector privado no se decidía a invertir, para que ese ahorro, a través del Gobierno, saliera a irrigar la economía y a transformarse en consumo de los receptores de los gastos oficiales.<cite>Restrepo, sobre Keynes</cite></blockquote>
+  <p>Esta es la razón por la cual Restrepo insiste en que las teorías keynesianas fueron pensadas para épocas de recesión. En tiempos normales, el ahorro sí tiene quién lo pida, y el gasto público financiado con deuda tiende a desplazar más gasto privado.</p>
+
+  <div class="card key">
+    <div class="card-title">Lectura política</div>
+    <p>Buena parte del debate público sobre el déficit gira alrededor de esta pregunta: ¿el gasto público está ocupando el espacio que habría usado el sector privado, o está usando recursos que de otro modo quedarían quietos mientras el privado se recupera? Quien defiende recortar suele argumentar lo primero; quien defiende gastar, lo segundo. La respuesta depende del momento del ciclo.</p>
+  </div>
+  <div class="card note">
+    <div class="card-title">En una frase</div>
+    <p>El desplazamiento es fuerte cuando la economía está llena y la plata escasea, y débil en una recesión, cuando el ahorro está quieto y el Estado lo pone a circular.</p>
+  </div>
+  <p class="src">Restrepo, Hacienda pública. MFMP 2026, cap. 3.</p>
+</section>
+
 <section class="step" data-s="9" data-b="El multiplicador fiscal" data-t="Cómo leer las estimaciones para Colombia">
-  <div class="kicker">El multiplicador fiscal · 5 de 5</div>
+  <div class="kicker">El multiplicador fiscal · 8 de 8</div>
   <h2>Cómo leer las estimaciones para Colombia</h2>
   <p>Los economistas no pueden hacer experimentos con la economía de un país. Lo que hacen es tomar datos históricos (en el MFMP 2026, datos trimestrales de 2005 a 2025) y usar modelos estadísticos para estimar cómo reaccionó el PIB después de cambios en el gasto o los impuestos. No necesitas entender el modelo; sí necesitas saber leer sus resultados.</p>
 
   <dl class="def">
     <dt>«Un peso de gasto genera $0,4 de PIB»</dt>
-    <dd>Por cada peso que gasta el Gobierno, la producción del país sube 40 centavos. Como es menos de un peso, el efecto es <strong>atenuado</strong>: otras cosas (las fugas y frenos del paso anterior) compensan parte del impulso.</dd>
+    <dd>Por cada peso que gasta el Gobierno, la producción del país sube 40 centavos. Como es menos de un peso, el efecto es <strong>atenuado</strong>: las fugas y frenos de los pasos anteriores compensan parte del impulso.</dd>
     <dt>Efecto en un trimestre y efecto acumulado</dt>
     <dd>El primero mide qué pasa en un periodo de tres meses; el segundo suma todo lo que ha pasado desde el impulso hasta cierto momento, por ejemplo un año.</dd>
     <dt>Estadísticamente significativo</dt>
-    <dd>El modelo puede distinguir el efecto de cero con razonable confianza. Si un resultado «no es significativo», el número existe pero es muy incierto.</dd>
+    <dd>El modelo puede distinguir el efecto de cero con razonable confianza. Si un resultado no es significativo, el número existe pero es muy incierto.</dd>
   </dl>
 
   <div class="table-wrap">
@@ -1014,13 +1196,22 @@ tr.total td { font-weight: 700; }
         <tr><td><strong>Gasto primario</strong> (MFMP 2026)</td><td>$0,2 en el primer trimestre; máximo $0,4 en el segundo. Solo significativo el primer trimestre.</td><td>Cada peso gastado sube el PIB menos de un peso, y el efecto dura poco.</td></tr>
         <tr><td><strong>Inversión pública</strong> (MFMP 2026)</td><td>$0,4 en el primer trimestre; $0,8 acumulado al año; $1,0 a los dos años. Los efectos de mediano plazo no son significativos.</td><td>Efecto más lento y más duradero: puede llegar a devolver el peso completo.</td></tr>
         <tr><td><strong>Impuestos</strong> (MFMP 2026)</td><td>−$0,7 en el primer trimestre; cerca de −$1,5 acumulado al año.</td><td>Subir impuestos frena la economía, y el efecto se va profundizando.</td></tr>
-        <tr><td><strong>Gasto e impuestos</strong> (Ángel et al., 2020, Banco de la República)</td><td>0,8 para el gasto y −0,1 para los impuestos después de un año. En fases contractivas, el del gasto supera 1.</td><td>En recesión el gasto rinde más, porque hay capacidad ociosa.</td></tr>
+        <tr><td><strong>Gasto e impuestos</strong> (Ángel et al., 2020, Banco de la República)</td><td>0,8 para el gasto y −0,1 para los impuestos después de un año. En fases contractivas, el del gasto supera 1.</td><td>En recesión el gasto rinde más, porque hay capacidad ociosa y poco desplazamiento.</td></tr>
       </tbody>
     </table>
   </div>
 
+  <div class="card life">
+    <div class="card-title">Traducido a pesos (aplicando las cifras del MFMP)</div>
+    <ul>
+      <li>Si el Gobierno gasta <strong>$1 billón</strong> adicional en funcionamiento, el PIB de ese trimestre sube unos <strong>$200.000 millones</strong>, y como máximo unos $400.000 millones en el trimestre siguiente.</li>
+      <li>Si ese billón se invierte, por ejemplo, en vías terciarias, el efecto acumulado puede acercarse a <strong>$1 billón</strong> en dos años. Una forma de entenderlo: la vía sigue sirviendo a los campesinos para sacar sus cosechas mucho después de que se fue el último obrero.</li>
+      <li>Si el Gobierno recauda <strong>$1 billón</strong> más en impuestos, el PIB del primer trimestre cae unos <strong>$700.000 millones</strong>.</li>
+    </ul>
+  </div>
+
   <h3>¿Por qué tan lejos del 2,86 o del 4 del libro?</h3>
-  <p>Porque Colombia es una economía abierta que importa buena parte de lo que consume, porque en cada vuelta hay impuestos, porque el endeudamiento presiona las tasas y porque las expectativas cuentan. Todo lo del paso anterior.</p>
+  <p>Porque Colombia es una economía abierta que importa buena parte de lo que consume, porque en cada vuelta hay impuestos, porque el endeudamiento puede desplazar gasto privado y porque las expectativas cuentan. Todo lo de los pasos anteriores.</p>
   <div class="card key">
     <div class="card-title">Conclusión del MFMP</div>
     <p>La efectividad de la política fiscal en Colombia depende de la composición del gasto y de la fase del ciclo en la que se encuentre el país. La inversión pública aparece como el componente con mayor potencial de efectos persistentes.</p>
@@ -1031,6 +1222,7 @@ tr.total td { font-weight: 700; }
   </div>
   <p class="src">MFMP 2026, recuadro sobre multiplicadores fiscales.</p>
 </section>
+
 
 <!-- =================================================
      SESIÓN 9 · BLOQUE G · ESTABILIZADORES Y BALANCE
@@ -1249,7 +1441,7 @@ tr.total td { font-weight: 700; }
   </ol>
 
   <h3>La idea de valor presente</h3>
-  <p>Con una tasa de 10%, $110 del próximo año equivalen a $100 de hoy, porque si hoy prestas $100 al 10% recibes $110 el próximo año. Para pasar una cifra del futuro a «pesos de hoy» se divide por (1 + r). Así:</p>
+  <p>Con una tasa de 10%, $110 del próximo año equivalen a $100 de hoy, porque si hoy pones $100 en un CDT al 10%, dentro de un año recibes $110. Para pasar una cifra del futuro a «pesos de hoy» se divide por (1 + r). Así:</p>
   <div class="table-wrap narrow">
     <table>
       <thead><tr><th></th><th class="num">Año 1</th><th class="num">Año 2 en pesos de hoy</th><th class="num">Total</th></tr></thead>
@@ -1318,6 +1510,12 @@ tr.total td { font-weight: 700; }
     <p>Deuda d = 60%; tasa r = 6%; la economía crece 12% nominal (por ejemplo, rebote más inflación); déficit primario de 2%.</p>
     <p>Bola de nieve: (0,06 − 0,12) × 60 = −0,06 × 60 = −3,6 puntos.<br>Déficit primario: +2 puntos.<br>Total: la deuda <strong>baja 1,6 puntos</strong> aunque hubo déficit.</p>
     <p>Así se explica buena parte de la corrección entre 2020 y 2025: según el MFMP, el término r − g redujo la deuda neta en 19,1 puntos, mientras los déficits primarios la empujaban al alza en 10,9.</p>
+  </div>
+
+  <div class="card life">
+    <div class="card-title">En la vida real: la tarjeta en la que solo pagas una parte (ejemplo ilustrativo)</div>
+    <p>Debes $2 millones en una tarjeta que cobra 30% al año: $600.000 de intereses. Si en el año solo abonas $400.000, la deuda sube a $2,2 millones aunque no hayas comprado nada nuevo. Eso es la bola de nieve: la tasa de interés trabaja contra ti.</p>
+    <p>Ahora supón que tu salario sube mucho ese año. La deuda en pesos creció, pero frente a lo que ganas pesa menos. Eso es el crecimiento (g) diluyendo la deuda. La pregunta para un país es la misma que para ti: ¿crece más rápido tu deuda o tu ingreso?</p>
   </div>
 
   <div class="table-wrap narrow">
@@ -1620,7 +1818,7 @@ tr.total td { font-weight: 700; }
     next.disabled = cur === steps.length - 1;
     next.textContent = cur === 0 ? 'Empezar →' : 'Siguiente →';
     window.scrollTo(0, 0);
-    try { localStorage.setItem('fp89_step_v4', String(cur)); } catch (e) {}
+    try { localStorage.setItem('fp89_step_v5', String(cur)); } catch (e) {}
   }
 
   prev.addEventListener('click', function () { go(cur - 1); });
@@ -1642,7 +1840,7 @@ tr.total td { font-weight: 700; }
   }, { passive: true });
 
   var start = 0;
-  try { var v = parseInt(localStorage.getItem('fp89_step_v4'), 10); if (v >= 0 && v < steps.length) start = v; } catch (e) {}
+  try { var v = parseInt(localStorage.getItem('fp89_step_v5'), 10); if (v >= 0 && v < steps.length) start = v; } catch (e) {}
   go(start);
 })();
 </script>
